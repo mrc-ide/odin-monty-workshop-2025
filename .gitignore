@@ -51,5 +51,6 @@ rsconnect/
 /.quarto/
 
 _book/
+_site/
 
 index_files/
