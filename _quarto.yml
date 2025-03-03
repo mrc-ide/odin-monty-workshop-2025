@@ -1,0 +1,11 @@
+project:
+  type: book
+
+book:
+  title: "Odin-Monty Workshop"
+  author: "Odin-Monty Team"
+  chapters:
+    - index.qmd
+    - agenda.qmd
+    - acknowledgments.qmd
+    - contact.qmd

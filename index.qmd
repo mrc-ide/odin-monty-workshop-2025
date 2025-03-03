@@ -1,0 +1,24 @@
+## Event Details {.unnumbered}
+
+- **Dates:** 24–25 March 2025
+- **Location:** School of Public Health, [White City campus](https://www.imperial.ac.uk/white-city-campus/), Imperial College London
+
+## Overview {.unnumbered}
+
+The **Odin-Monty Workshop** is a collaborative event designed to showcase the second generation of odin-monty tools and bring together modellers from diverse fields, as well as those working at the interface between modelling and other disciplines. Participants will explore new features, see real-world use cases, and gain insights from others working in similar domains.
+
+## Workshop Aims {.unnumbered}
+
+- Introducing the updated [odin-monty](https://mrc-ide.github.io/odin-monty/) toolkit
+- Building a community and fostering collaboration
+- Collecting feedback to guide further refinement
+
+By actively involving attendees, the odin-monty team aims to ensure these tools evolve in step with community needs and emerging trends.
+
+### Lightning Talks {.unnumbered}
+
+On 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session, “Lightning talks – odin applications in practice.” You can register for this session if you are unable to travel to London or if you are primarily interested in the talks.
+
+### Registration Deadline {.unnumbered}
+
+Registration is closed at the moment
