@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: _site
 
 book:
   title: "Odin-Monty Workshop"
