@@ -81,8 +81,8 @@ Future of the Tools
 - Priorities and Roadmap
 - New and upcoming features:
   - Gradient methods and auto differentiation
-  - HMC example
-  - Novel samplers featuring Parallel tempering
+  - HMC & NUTS
+  - Parallel tempering
   - GPU/HPC integration
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
@@ -95,7 +95,7 @@ Extended lunch Break and drop-in session from 13:00
 Teaching & Learning with wodin
 
 - Teaching with wodin and transitioning to using the R packages
-- Expanding external teaching efforts
+- Shortcourses
 - participatory menti session
 
 **15:00 - 15:30**
