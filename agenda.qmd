@@ -4,94 +4,102 @@
 
 ## Day 1: Introducing the Tools and Applications {.unnumbered}
 
-**09:00 - 09:30**  
+**09:00 - 09:30**
 Registration & Coffee
 
-**09:30 - 09:45**  
-Welcome and opening remarks  
+**09:30 - 09:45**
+Welcome and opening remarks
 
-**09:45 – 11:15**  
-Tools update: new and planned features in odin/dust/monty  
-- Introduction (15 min)  
-- Hands on basic introduction odin-monty  
-- Gradient methods and auto differentiation  
-- Hands on HMC example  
-- Novel samplers featuring Parallel tempering  
-- Hands-on mixture model example  
-- Future directions: GPU/HPC integration
+**09:45 – 11:15**
+Building a model with odin
 
-**11:15 - 11:30**  
+  - Hands on basic introduction odin-monty: building a epidemiological from scratch
+  - A hands on session (via posit cloud or your own laptop) where we will build a model and add increasing realism.
+
+**11:15 - 11:30**
 Coffee Break
 
-**11:30 - 12:45**  
-Case studies  
-- Chemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)  
-- Covid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)  
-- Antibody Modelling or mpox model with migration to odin2 (TBC)  
-- Open discussion on odin/monty applications
+**11:30 - 12:45**
+Case studies
 
-**12:45 - 13:45**  
+- Chemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)
+- Covid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)
+- Modelling mpox - Ed Knock/Lilith Whittles (Imperial)
+
+**12:45 - 13:45**
 Lunch Break
 
-**13:45 - 15:00**  
-Teaching & Learning with wodin  
-- Teaching with wodin and transitioning to using the R packages  
-- Departmental teaching successes (presenter TBC)  
-- Expanding external teaching efforts - participatory menty session
+**13:45 - 15:00**
+Inference with monty
 
-**15:00 - 15:30**  
+- Hands on introduction to inference
+- Connecting odin models to data, and infering parameters with mcmc
+- Collect information on hidden models states while running models
+- Running counterfactuals and simulations
+
+**15:00 - 15:30**
 Coffee Break
 
-**15:30 - 16:30**  
-Lightning talks – Applications in practice (Hybrid)  
-- Short 2-5 minutes presentations from participants (online + in-person)  
+**15:30 - 16:30**
+Lightning talks
+
+– Applications in practice (Hybrid)
+- Short 2-5 minutes presentations from participants (online + in-person)
 - Open to additional registered online attendees
 
-**16:30 - 16:45**  
+**16:30 - 16:45**
 Day 1 Wrap-Up
 
-**17:00 - 18:30**  
-Department reception (open to all)  
-- Informal networking, drinks, and snacks  
-- Optional poster displays or tool demos
+**17:00 - 18:30**
+Department reception (open to all)
+- Informal networking, drinks, and snacks
 
-**19:00 - Late**  
-Workshop dinner (Limited numbers)  
+**19:00 - Late**
+Workshop dinner (Limited numbers)
 
 ## Day 2: Feedback, Development, and Support
 
-**08:30 - 09:00**  
+**08:30 - 09:00**
 Coffee & networking
 
-**09:00 - 10:30**  
-Feedback in small groups  
-- Participants discuss specific challenges using odin/monty  
-- Guided feedback on:  
-  - Interface design  
-  - Development priorities  
-  - Work practice  
+**09:00 - 10:30**
+Feedback in small groups
+
+- Participants discuss specific challenges using odin/monty
+- Guided feedback on:
+  - Interface design
+  - Development priorities
+  - Work practice
   - Speeding up model development
 
-**10:30 - 11:00**  
+**10:30 - 11:00**
 Coffee Break
 
-**11:00 - 12:30**  
-Future of the Tools – Priorities and Roadmap  
-- Survey “Out of 1-10” priorities with menti  
-- Roadmap and new features based on collected feedback  
+**11:00 - 12:30**
+Future of the Tools
+
+- Priorities and Roadmap
+- New and upcoming features:
+  - Gradient methods and auto differentiation
+  - HMC & NUTS
+  - Parallel tempering
+  - GPU/HPC integration
+- Survey “Out of 1-10” priorities with menti
+- Roadmap and new features based on collected feedback
 - Discussion
 
-**12:30 - 13:30**  
-Lunch Break
+**12:30 - 14:00**
+Extended lunch Break and drop-in session from 13:00
 
-**13:30 - 15:00**  
-Parallel Sessions:  
-- **Session A:** Drop-in clinic & problem-solving session  
-   issues, tool use, or ongoing projects_  
-- **Session B:** Case studies of the new pipelines  
+**13:30 - 15:00**
+Teaching & Learning with wodin
 
-**15:00 - 15:30**  
-Closing remarks and thanks  
-- Summary of workshop outcomes  
+- Teaching with wodin and transitioning to using the R packages
+- Shortcourses
+- participatory menti session
+
+**15:00 - 15:30**
+Closing remarks and thanks
+
+- Summary of workshop outcomes
 - Next steps and continued collaboration plans
-
