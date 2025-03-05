@@ -11,22 +11,27 @@ Registration & Coffee
 Welcome and opening remarks
 
 **09:45 – 11:15**
-- Hands on basic introduction odin-monty: building a epidemiological from scratch
-- A hands on session (via posit cloud or your own laptop) where we will build a model and add increasing realism.
+Building a model with odin
+
+  - Hands on basic introduction odin-monty: building a epidemiological from scratch
+  - A hands on session (via posit cloud or your own laptop) where we will build a model and add increasing realism.
 
 **11:15 - 11:30**
 Coffee Break
 
 **11:30 - 12:45**
 Case studies
+
 - Chemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)
 - Covid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)
-- Antibody Modelling or mpox model with migration to odin2 Ed Knock/Lilith Whittes (Imperial)
+- Modelling mpox - Ed Knock/Lilith Whittles (Imperial)
 
 **12:45 - 13:45**
 Lunch Break
 
 **13:45 - 15:00**
+Inference with monty
+
 - Hands on introduction to inference
 - Connecting odin models to data, and infering parameters with mcmc
 - Collect information on hidden models states while running models
@@ -36,7 +41,9 @@ Lunch Break
 Coffee Break
 
 **15:30 - 16:30**
-Lightning talks – Applications in practice (Hybrid)
+Lightning talks
+
+– Applications in practice (Hybrid)
 - Short 2-5 minutes presentations from participants (online + in-person)
 - Open to additional registered online attendees
 
@@ -57,6 +64,7 @@ Coffee & networking
 
 **09:00 - 10:30**
 Feedback in small groups
+
 - Participants discuss specific challenges using odin/monty
 - Guided feedback on:
   - Interface design
@@ -68,12 +76,14 @@ Feedback in small groups
 Coffee Break
 
 **11:00 - 12:30**
-Future of the Tools – Priorities and Roadmap
-- New and upcoming features
+Future of the Tools
+
+- Priorities and Roadmap
+- New and upcoming features:
   - Gradient methods and auto differentiation
   - HMC example
   - Novel samplers featuring Parallel tempering
-  - Future directions: GPU/HPC integration
+  - GPU/HPC integration
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
 - Discussion
@@ -83,10 +93,13 @@ Extended lunch Break and drop-in session from 13:00
 
 **13:30 - 15:00**
 Teaching & Learning with wodin
+
 - Teaching with wodin and transitioning to using the R packages
-- Expanding external teaching efforts - participatory menti session
+- Expanding external teaching efforts
+- participatory menti session
 
 **15:00 - 15:30**
 Closing remarks and thanks
+
 - Summary of workshop outcomes
 - Next steps and continued collaboration plans
