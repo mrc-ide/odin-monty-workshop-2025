@@ -11,10 +11,10 @@ Registration & Coffee
 Welcome and opening remarks
 
 **09:45 – 11:15**
-Building a model with odin
+Building a model with [odin](https://mrc-ide.github.io/odin2/)
 
-  - Hands on basic introduction odin-monty: building a epidemiological from scratch
-  - A hands on session (via posit cloud or your own laptop) where we will build a model and add increasing realism.
+  - Hands on basic introduction odin-monty: building an epidemiological model from scratch
+  - A hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism
 
 **11:15 - 11:30**
 Coffee Break
@@ -24,15 +24,15 @@ Case studies
 
 - Chemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)
 - Covid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)
-- Modelling mpox - Ed Knock/Lilith Whittles (Imperial)
+- Modelling mpox - Ed Knock (Imperial)
 
 **12:45 - 13:45**
 Lunch Break
 
 **13:45 - 15:00**
-Inference with monty
+Inference with [monty](https://mrc-ide.github.io/monty/)
 
-- Hands on introduction to inference
+- Hands-on introduction to inference
 - Connecting odin models to data, and infering parameters with mcmc
 - Collect information on hidden models states while running models
 - Running counterfactuals and simulations
@@ -40,15 +40,12 @@ Inference with monty
 **15:00 - 15:30**
 Coffee Break
 
-**15:30 - 16:30**
+**15:30 - 16:45**
 Lightning talks
 
 – Applications in practice (Hybrid)
-- Short 2-5 minutes presentations from participants (online + in-person)
+- Short 2 minutes presentations from participants (online + in-person)
 - Open to additional registered online attendees
-
-**16:30 - 16:45**
-Day 1 Wrap-Up
 
 **17:00 - 18:30**
 Department reception (open to all)
@@ -59,10 +56,10 @@ Workshop dinner (Limited numbers)
 
 ## Day 2: Feedback, Development, and Support
 
-**08:30 - 09:00**
+**09:00 - 9:30**
 Coffee & networking
 
-**09:00 - 10:30**
+**09:30 - 10:45**
 Feedback in small groups
 
 - Participants discuss specific challenges using odin/monty
@@ -72,10 +69,10 @@ Feedback in small groups
   - Work practice
   - Speeding up model development
 
-**10:30 - 11:00**
+**10:45 - 11:15**
 Coffee Break
 
-**11:00 - 12:30**
+**11:15 - 12:30**
 Future of the Tools
 
 - Priorities and Roadmap
@@ -91,7 +88,7 @@ Future of the Tools
 **12:30 - 14:00**
 Extended lunch Break and drop-in session from 13:00
 
-**13:30 - 15:00**
+**14:00 - 15:00**
 Teaching & Learning with wodin
 
 - Teaching with wodin and transitioning to using the R packages
