@@ -3,6 +3,8 @@
 - **Dates:** 24–25 March 2025
 - **Location:** School of Public Health, [White City campus](https://www.imperial.ac.uk/white-city-campus/), Imperial College London
 
+![](images/HPRU MRC Imperial joint.png){width=100%}
+
 ## Overview {.unnumbered}
 
 The **Odin-Monty Workshop** is a collaborative event designed to showcase the second generation of odin-monty tools and bring together modellers from diverse fields, as well as those working at the interface between modelling and other disciplines. Participants will explore new features, see real-world use cases, and gain insights from others working in similar domains.
