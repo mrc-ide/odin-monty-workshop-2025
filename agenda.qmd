@@ -53,7 +53,7 @@ Department reception (open to all)
 - Informal networking, drinks, and snacks
 
 **19:00 - Late**
-Workshop dinner (Limited numbers)
+Workshop dinner at [The Broadcaster](https://www.thebroadcaster.co.uk/) (Limited numbers)
 
 ## Day 2: Feedback, Development, and Support
 
@@ -61,12 +61,13 @@ Workshop dinner (Limited numbers)
 Coffee & networking
 
 **09:30 - 10:45**
-Feedback in small groups
+Feedback in small groups - Chair Thomas Rawson 
 
 - Participants discuss specific challenges using odin/monty
 - Guided feedback on:
   - Interface design
   - Development priorities
+  - Documentation priorities
   - Work practice
   - Speeding up model development
 
@@ -74,7 +75,7 @@ Feedback in small groups
 Coffee Break
 
 **11:15 - 12:30**
-Future of the Tools
+Future of the Tools - Chair Katy Gaythorpe
 
 - Priorities and Roadmap
 - New and upcoming features:
@@ -92,9 +93,10 @@ Extended lunch Break and drop-in session from 13:00
 **14:00 - 15:00**
 Teaching & Learning with wodin
 
-- Teaching with wodin and transitioning to using the R packages
-- Shortcourses
-- participatory menti session
+- Enhancing teaching with wodin: A web-based approach to modelling - TBC
+- Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
+- Building capacity with (w)odin and monty - Charlie Whittaker
+- wodin for policy scenario - TBC
 
 **15:00 - 15:30**
 Closing remarks and thanks
