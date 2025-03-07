@@ -93,10 +93,10 @@ Extended lunch Break and drop-in session from 13:00
 **14:00 - 15:00**
 Teaching & Learning with wodin
 
-- Enhancing teaching with wodin: A web-based approach to modelling
-- Hurdles in learning & accessibility for teaching infectious disease modelling
-- Building capacity with (w)odin and monty
-- wodin for policy scenario
+- Enhancing teaching with wodin: A web-based approach to modelling - TBC
+- Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
+- Building capacity with (w)odin and monty - Charlie Whittaker
+- wodin for policy scenario - TBC
 
 **15:00 - 15:30**
 Closing remarks and thanks
