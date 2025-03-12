@@ -1,0 +1,92 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Event Details",
+    "crumbs": [
+      "Event Details"
+    ]
+  },
+  {
+    "objectID": "index.html#event-details",
+    "href": "index.html#event-details",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Dates: 24–25 March 2025\nLocation: School of Public Health, White City campus, Imperial College London",
+    "crumbs": [
+      "Event Details"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Odin-Monty Workshop",
+    "section": "Overview",
+    "text": "Overview\nThe Odin-Monty Workshop is a collaborative event designed to showcase the second generation of odin-monty tools and bring together modellers from diverse fields, as well as those working at the interface between modelling and other disciplines. Participants will explore new features, see real-world use cases, and gain insights from others working in similar domains.",
+    "crumbs": [
+      "Event Details"
+    ]
+  },
+  {
+    "objectID": "index.html#workshop-aims",
+    "href": "index.html#workshop-aims",
+    "title": "Odin-Monty Workshop",
+    "section": "Workshop Aims",
+    "text": "Workshop Aims\n\nIntroducing the updated odin-monty toolkit\nBuilding a community and fostering collaboration\nCollecting feedback to guide further refinement\n\nBy actively involving attendees, the odin-monty team aims to ensure these tools evolve in step with community needs and emerging trends.\n\nLightning Talks\nOn 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session, “Lightning talks – odin applications in practice.” You can register for this session if you are unable to travel to London or if you are primarily interested in the talks.\n\n\nRegistration Deadline\nRegistration is closed at the moment",
+    "crumbs": [
+      "Event Details"
+    ]
+  },
+  {
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "Agenda",
+    "section": "",
+    "text": "Day 1: Introducing the Tools and Applications\nDates: 24–25 March 2025\n09:00 - 09:30 Registration & Coffee\n09:30 - 09:45 Welcome and opening remarks\n09:45 – 11:15 Building a model with odin\n11:15 - 11:30 Coffee Break\n11:30 - 12:45 Case studies\n12:45 - 13:45 Lunch Break\n13:45 - 15:00 Inference with monty - Chair Peter Winskill\n15:00 - 15:30 Coffee Break\n15:30 - 16:45 Lightning talks\n17:00 - 18:30 Department reception (open to all)\n19:00 - Late Workshop dinner at The Broadcaster (Limited numbers)",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#day-1-introducing-the-tools-and-applications",
+    "href": "agenda.html#day-1-introducing-the-tools-and-applications",
+    "title": "Agenda",
+    "section": "",
+    "text": "Hands on basic introduction odin-monty: building an epidemiological model from scratch\nA hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism\n\n\n\n\nChemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)\nCovid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)\nModelling mpox - Ed Knock (Imperial)\n\n\n\n\nHands-on introduction to inference\nConnecting odin models to data, and infering parameters with mcmc\nCollect information on hidden models states while running models\nRunning counterfactuals and simulations\n\n\n\n\nApplications in practice (Hybrid)\nShort 2 minutes presentations from participants (online + in-person)\nOpen to additional registered online attendees\n\n\n\nInformal networking, drinks, and snacks",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "agenda.html#day-2-feedback-development-and-support",
+    "href": "agenda.html#day-2-feedback-development-and-support",
+    "title": "Agenda",
+    "section": "Day 2: Feedback, Development, and Support",
+    "text": "Day 2: Feedback, Development, and Support\n09:00 - 9:30 Coffee & networking\n09:30 - 10:45 Feedback in small groups - Chair Thomas Rawson\n\nParticipants discuss specific challenges using odin/monty\nGuided feedback on:\n\nInterface design\nDevelopment priorities\nDocumentation priorities\nWork practice\nSpeeding up model development\n\n\n10:45 - 11:15 Coffee Break\n11:15 - 12:30 Future of the Tools - Chair Katy Gaythorpe\n\nPriorities and Roadmap\nNew and upcoming features:\n\nGradient methods and auto differentiation\nHMC & NUTS\nParallel tempering\nGPU/HPC integration\n\nSurvey “Out of 1-10” priorities with menti\nRoadmap and new features based on collected feedback\nDiscussion\n\n12:30 - 14:00 Extended lunch Break and drop-in session from 13:00\n14:00 - 15:00 Teaching & Learning with wodin\n\nEnhancing teaching with wodin: A web-based approach to modelling - TBC\nHurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder\nBuilding capacity with (w)odin and monty - Charlie Whittaker\nwodin for policy scenario - TBC\n\n15:00 - 15:30 Closing remarks and thanks\n\nSummary of workshop outcomes\nNext steps and continued collaboration plans",
+    "crumbs": [
+      "Agenda"
+    ]
+  },
+  {
+    "objectID": "acknowledgments.html",
+    "href": "acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "This workshop is supported by the NIHR HPRU in Modelling and Health Economics, a partnership between UKSHA, Imperial College London, and the London School of Hygiene and Tropical Medicine",
+    "crumbs": [
+      "Acknowledgments"
+    ]
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact Us",
+    "section": "",
+    "text": "For any inquiries or further information about the workshop, please reach out:\n\nEmail: Nieves Derqui and Marc Baguelin\nBlueSky: @mrc-outbreak.bsky.social and @marcbaguelin.bsky.social",
+    "crumbs": [
+      "Contact Us"
+    ]
+  }
+]
