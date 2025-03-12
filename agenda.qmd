@@ -30,7 +30,7 @@ Case studies
 Lunch Break
 
 **13:45 - 15:00**
-Inference with [monty](https://mrc-ide.github.io/monty/)
+Inference with [monty](https://mrc-ide.github.io/monty/) - Chair Peter Winskill
 
 - Hands-on introduction to inference
 - Connecting odin models to data, and infering parameters with mcmc
