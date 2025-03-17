@@ -507,10 +507,6 @@ samples <- monty_sample(posterior, sampler, 1000,
                         runner = runner, n_chains = 4)
 ```
 
-. . .
-
-(sorry, this is broken unless your model is in a package!)
-
 ## Run chains on different cluster nodes
 
 ```r
