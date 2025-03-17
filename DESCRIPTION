@@ -1,0 +1,33 @@
+Package: odin.monty
+Title: Odin and Monty
+Version: 1.0
+Authors@R: c(person("Ed", "Knock", role = c("aut", "cre"),
+                    email = "e.knock@imperial.ac.uk"),
+             person("Imperial College of Science, Technology and Medicine",
+                    role = "cph"))
+Imports:
+    bayesplot,
+    brio,
+    coda,
+    cpp11,
+    decor,
+    devtools,
+    dust2,
+    fs,
+    knitr,
+    monty,
+    odin2,
+    pkgbuild,
+    pkgload,
+    posterior,
+    quarto,
+    rmarkdown,
+    roxygen2,
+    sessioninfo,
+    usethis
+Remotes:
+    mrc-ide/dust2,
+    mrc-ide/monty,
+    mrc-ide/odin2
+Encoding: UTF-8
+Language: en-GB

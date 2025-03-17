@@ -1,0 +1,8 @@
+project:
+  type: website
+  output-dir: _slides
+  render:
+    - odin.qmd
+    - fitting.qmd
+
+format: revealjs

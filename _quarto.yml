@@ -1,12 +1,5 @@
-project:
-  type: book
-  output-dir: _site
-
-book:
-  title: "Odin-Monty Workshop"
-  author: "Odin-Monty Team"
-  chapters:
-    - index.qmd
-    - agenda.qmd
-    - acknowledgments.qmd
-    - contact.qmd
+profile:
+  default: book
+  group:
+    - book
+    - slides

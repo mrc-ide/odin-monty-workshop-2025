@@ -52,5 +52,7 @@ rsconnect/
 
 _book/
 _site/
+_dust/
 
-index_files/
+*_files/
+*_cache/

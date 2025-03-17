@@ -21,6 +21,11 @@ By actively involving attendees, the odin-monty team aims to ensure these tools 
 
 On 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session, “Lightning talks – odin applications in practice.” You can register for this session if you are unable to travel to London or if you are primarily interested in the talks.
 
+## Slide decks
+
+* [odin](slides/odin.html)
+* [fitting](slides/fitting.html)
+
 ### Registration Deadline {.unnumbered}
 
 Registration is closed at the moment
