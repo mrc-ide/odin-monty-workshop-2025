@@ -528,9 +528,6 @@ samples <- monty_sample_manual_collect("mypath")
 ```
 
 . . .
-
-(sorry, also broken unless your model is in a package!)
-
 ## Autocorrelation {.smaller}
 
 * Notion from time series, which translates for (P)MCMC in term of the steps of the chains
