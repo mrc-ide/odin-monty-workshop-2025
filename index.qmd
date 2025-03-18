@@ -53,7 +53,7 @@ pkgbuild::has_build_tools(debug = TRUE)
 
 If this fails, you should follow instructions for your platform:
 
-* Windows: Install "RTools", for 4.4.x of R see [these instructopns](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
+* Windows: Install "RTools", for 4.4.x of R see [these instructions](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
 * macOS: Install the XCode command line tools following [these instructions](https://mac.r-project.org/tools/)
 * Linux: This varies by distribution, and most users will likely have everything they need if they can install any packages.
 
