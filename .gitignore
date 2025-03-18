@@ -53,6 +53,8 @@ rsconnect/
 _book/
 _site/
 _dust/
+_slides/
+mypath/
 
 *_files/
 *_cache/
