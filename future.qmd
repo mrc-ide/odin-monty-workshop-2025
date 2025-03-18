@@ -1,0 +1,67 @@
+---
+title: "Future of the tools"
+format:
+  revealjs:
+    preview-links: auto
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
+execute:
+  echo: true
+  message: true
+  output: true
+  warning: true
+---
+
+# What is new?
+
+* Since `odin` v1 (classic odin, pre 2020)
+  - comparison to data and likelihood support
+  - run multiple sets of paramters at once
+  - run in parallel
+
+* Since `odin.dust`
+  - limited support for automatic differentiation
+  - more efficient paramter updating
+  - parameter packers
+  - better parallelism
+  - periodic variable resetting
+  - better error messages
+  - compile time array bounds checking
+  - debugging support
+
+# Syntax changes
+
+* `user()` -> `parameter()`
+* Discrete models have a proper time basis, `dt` is now a reserved word
+* No longer use R's names for distribution functions
+* Named arguments allow clearer code
+* Automatic migration support is available!
+
+# Limitations
+
+* Much slower compilation time
+* Delays less flexible than in version 1 (cannot be used in discrete time models, the default argument has been removed)
+
+# Practical considerations
+
+* Handful of missing features from `odin` v1 and `dust` v1 (`odin.dust`)
+  - delayed delays
+  - mixed time models
+  - compilation to JavaScript
+  - extendable via C++
+* The great package migration
+  - `dust2` to `dust`
+  - `odin2` to `odin` and all onto CRAN
+
+# Planned new features
+
+## GPU support
+
+## MPI support
+
+## Automatic differentiation
+
+## Parallel tempering
+
+## More bounds checking and debugging
+
+## More radical changes to the DSL?

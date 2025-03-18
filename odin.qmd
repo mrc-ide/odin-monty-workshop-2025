@@ -3,6 +3,7 @@ title: "An introduction to odin2 and dust2"
 format:
   revealjs:
     preview-links: auto
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
 execute:
   echo: true
   message: true

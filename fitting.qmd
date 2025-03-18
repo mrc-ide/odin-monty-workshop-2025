@@ -3,7 +3,7 @@ title: "Fitting odin models with monty"
 format:
   revealjs:
     preview-links: auto
-    footer: "[mrc-ide/odin-monty](.)"
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
 execute:
   echo: true
   message: true
