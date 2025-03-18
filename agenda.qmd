@@ -79,9 +79,8 @@ Future of the Tools - Chair Katy Gaythorpe
 
 - Priorities and Roadmap
 - New and upcoming features:
-  - Gradient methods and auto differentiation
-  - HMC & NUTS
-  - Parallel tempering
+  - Gradient methods and autodiff - Marc Baguelin
+  - Parallel tempering - Robert Verity
   - GPU/HPC integration
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
@@ -93,10 +92,9 @@ Extended lunch Break and drop-in session from 13:00
 **14:00 - 15:00**
 Teaching & Learning with wodin
 
-- Enhancing teaching with wodin: A web-based approach to modelling - TBC
+- Enhancing teaching with wodin: A web-based approach to modelling - Charlie Whittaker
 - Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
-- Building capacity with (w)odin and monty - Charlie Whittaker
-- wodin for policy scenario - TBC
+- wodin for policy scenario - OJ Watson
 
 **15:00 - 15:30**
 Closing remarks and thanks
