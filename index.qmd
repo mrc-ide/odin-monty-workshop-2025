@@ -30,8 +30,8 @@ On 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session,
 
 In the interactive sessions, we will work through two slide decks:
 
-* Monday: [writing odin code](slides/odin.html)
-* Tuesday: [fitting odin models to data](slides/fitting.html)
+* Monday AM: [writing odin code](slides/odin.html)
+* Monday PM: [fitting odin models to data](slides/fitting.html)
 
 ## Installation instructions
 
@@ -53,7 +53,7 @@ pkgbuild::has_build_tools(debug = TRUE)
 
 If this fails, you should follow instructions for your platform:
 
-* Windows: Install "RTools", for 4.4.x of R see [these instructopns](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
+* Windows: Install "RTools", for 4.4.x of R see [these instructions](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
 * macOS: Install the XCode command line tools following [these instructions](https://mac.r-project.org/tools/)
 * Linux: This varies by distribution, and most users will likely have everything they need if they can install any packages.
 
