@@ -92,8 +92,8 @@ Extended lunch Break and drop-in session from 13:00
 **14:00 - 15:00**
 Teaching & Learning with wodin
 
-- Enhancing teaching with wodin: A web-based approach to modelling - Charlie Whittaker
 - Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
+- Enhancing teaching with wodin: A web-based approach to modelling - Charlie Whittaker
 - wodin for policy scenario - OJ Watson
 
 **15:00 - 15:30**
