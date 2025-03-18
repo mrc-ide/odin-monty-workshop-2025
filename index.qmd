@@ -28,8 +28,10 @@ On 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session,
 
 ## Slide decks
 
-* [odin](slides/odin.html)
-* [fitting](slides/fitting.html)
+In the interactive sessions, we will work through two slide decks:
+
+* Monday: [writing odin code](slides/odin.html)
+* Tuesday: [fitting odin models to data](slides/fitting.html)
 
 ## Installation instructions
 
