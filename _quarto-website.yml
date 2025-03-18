@@ -1,11 +1,12 @@
 project:
-  type: book
-  output-dir: _book
+  type: website
+  output-dir: _site
 
-book:
+website:
   title: "Odin-Monty Workshop"
-  author: "Odin-Monty Team"
-  chapters:
+  # author: "Odin-Monty Team"
+  navbar:
+    left:
     - index.qmd
     - agenda.qmd
     - acknowledgments.qmd

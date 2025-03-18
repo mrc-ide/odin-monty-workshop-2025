@@ -1,5 +1,10 @@
 ## Event Details {.unnumbered}
 
+```{r}
+#| include: false
+source("common.R")
+```
+
 - **Dates:** 24–25 March 2025
 - **Location:** School of Public Health, [White City campus](https://www.imperial.ac.uk/white-city-campus/), Imperial College London
 
@@ -17,14 +22,40 @@ The **Odin-Monty Workshop** is a collaborative event designed to showcase the se
 
 By actively involving attendees, the odin-monty team aims to ensure these tools evolve in step with community needs and emerging trends.
 
-### Lightning Talks {.unnumbered}
+## Lightning Talks {.unnumbered}
 
 On 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session, “Lightning talks – odin applications in practice.” You can register for this session if you are unable to travel to London or if you are primarily interested in the talks.
 
 ## Slide decks
 
-* [odin](slides/odin.html)
-* [fitting](slides/fitting.html)
+In the interactive sessions, we will work through two slide decks:
+
+* Monday: [writing odin code](slides/odin.html)
+* Tuesday: [fitting odin models to data](slides/fitting.html)
+
+## Installation instructions
+
+We strongly recommend version 4.4.x of R; older versions may work (and in particular 4.3.x is known to work).
+
+For the interactive session, you will need recent versions of `odin2`, `monty` and `dust2`, which you can install from our R-universe:
+
+```r
+install.packages(
+  c("monty", "dust2", "odin2"),
+  repos = c("https://mrc-ide.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+You will also need a working C++ toolchain; you can test if you have one by running
+
+```{r}
+pkgbuild::has_build_tools(debug = TRUE)
+```
+
+If this fails, you should follow instructions for your platform:
+
+* Windows: Install "RTools", for 4.4.x of R see [these instructopns](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
+* macOS: Install the XCode command line tools following [these instructions](https://mac.r-project.org/tools/)
+* Linux: This varies by distribution, and most users will likely have everything they need if they can install any packages.
 
 ### Registration Deadline {.unnumbered}
 
