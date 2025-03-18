@@ -25,12 +25,11 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
 
-      - name: Render book to all format
-        # Add any command line argument needed
+      - name: Render site
         run: |
-          quarto render --profile book
+          quarto render --profile site
           quarto render --profile slides
-          mv _slides _book/slides
+          mv _slides _site/slides
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
