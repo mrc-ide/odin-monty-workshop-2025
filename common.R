@@ -28,7 +28,7 @@ plain_output <- function(x) {
 }
 
 model_compile_code <- function(mod_nm, mod_code) {
-  c(paste0(mod_nm, " <- odin2::odin({"),
+  c(paste0(mod_nm, " <- odin({"),
     paste0("  ", readLines(mod_code)),
     "})")
 }
