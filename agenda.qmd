@@ -13,6 +13,8 @@ Welcome and opening remarks
 **09:45 – 11:15**
 Building a model with [odin](https://mrc-ide.github.io/odin2/)
 
+  [Session slides](slides/odin.html)
+  
   - Hands on basic introduction odin-monty: building an epidemiological model from scratch
   - A hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism
 
@@ -84,17 +86,18 @@ Future of the Tools - Chair Katy Gaythorpe
   - GPU/HPC integration
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
-- Discussion
+- Open discussion
 
 **12:30 - 14:00**
 Extended lunch Break and drop-in session from 13:00
 
 **14:00 - 15:00**
-Teaching & Learning with wodin
+Teaching & Learning with wodin - Chair Pablo Perez Guzman
 
 - Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
 - Enhancing teaching with wodin: A web-based approach to modelling - Charlie Whittaker
 - wodin for policy scenario - OJ Watson
+- Open discussion
 
 **15:00 - 15:30**
 Closing remarks and thanks

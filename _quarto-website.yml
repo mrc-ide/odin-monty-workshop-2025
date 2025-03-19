@@ -9,5 +9,6 @@ website:
     left:
     - index.qmd
     - agenda.qmd
+    - talks.qmd
     - acknowledgments.qmd
     - contact.qmd
