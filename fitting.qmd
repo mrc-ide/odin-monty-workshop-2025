@@ -370,7 +370,7 @@ monty_sample_manual_prepare(posterior, sampler, 10000, "mypath",
                             n_chains = 10)
 ```
 
-Then run these chains in parallel on your cluster, e.g., using `hipercow`:
+Then run these chains in parallel on your cluster:
 
 ```r
 monty_sample_manual_run(1, "mypath")
@@ -382,33 +382,6 @@ And retrieve the result
 
 ```r
 samples <- monty_sample_manual_collect("mypath")
-```
-
-## Thinning the chain
-
-* Either before or after fit
-* Faster and less memory to thin before
-* More flexible to thin later
-* No real difference if trajectories not saved
-
-This is useful because most of your chain is not interesting due to the autocorrelation.
-
-## Thinning the chain
-
-While running
-
-```r
-samples <- monty_sample(...,
-                        burnin = 100,
-                        thinning_factor = 4)
-```
-
-After running
-
-```r
-samples_thin <- monty_samples_thin(samples,
-                                   burnin = 100,
-                                   thinning_factor = 4)
 ```
 
 ## Saving history
@@ -444,6 +417,7 @@ dim(samples2$observations$trajectories)
 ```
 
 These can get very large quickly - there are two main ways to help reduce this:
+
 * Saving only a subset of the states
 * Thinning
 
@@ -480,6 +454,143 @@ samples_thin <- monty_samples_thin(samples,
 * Thinning while running faster and uses less memory
 * After running is more flexible (e.g. can plot full chains of parameters between running and thinning)
 
+## Projections and counterfactuals
+
+Let's use some new data
+
+```{r}
+data <- read.csv("data/schools.csv")
+plot(data, pch = 19, col = "red")
+```
+
+## Projections and counterfactuals
+
+We'll fit the data to an SIS model incorporating schools opening/closing
+
+```{r}
+#| echo: false
+#| results: "asis"
+r_output(model_compile_code("sis", "models/sis.R"))
+```
+
+```{r}
+#| include: false
+sis <- odin("models/sis.R")
+```
+
+## Projections and counterfactuals
+
+```{r}
+schools_time <- c(0, 50, 60, 120, 130, 170, 180)
+schools_open <- c(1,  0,  1,   0,   1,   0,   1)
+```
+
+We will
+
+* project forward from the end of the fits (day 150) to day 200
+* run a counterfactual where the schools did not reopen on day 60, reopening on day 130
+
+## Fitting to the SIS model
+
+```{r}
+packer <- monty_packer(c("beta0", "gamma", "schools_modifier"),
+                       fixed = list(schools_time = schools_time,
+                                    schools_open = schools_open))
+
+filter <- dust_filter_create(sis, time_start = 0, dt = 1,
+                             data = data, n_particles = 200)
+
+prior <- monty_dsl({
+  beta0 ~ Exponential(mean = 0.3)
+  gamma ~ Exponential(mean = 0.1)
+  schools_modifier ~ Uniform(0, 1)
+})
+
+vcv <- diag(c(2e-4, 2e-4, 4e-4))
+sampler <- monty_sampler_random_walk(vcv)
+```
+
+## Fitting to the SIS model
+
+We want to save the end state, and a snapshot at day 60 (where the counterfactual will diverge)
+
+```{r}
+likelihood <- dust_likelihood_monty(filter, packer, save_trajectories = TRUE,
+                                    save_state = TRUE, save_snapshots = 60)
+
+posterior <- likelihood + prior
+
+samples <- monty_sample(posterior, sampler, 500, initial = c(0.3, 0.1, 0.5),
+                        n_chains = 4)
+samples <- monty_samples_thin(samples, burnin = 100, thinning_factor = 8)
+```
+
+
+## Fit to data
+
+```{r}
+y <- dust_unpack_state(filter, samples$observations$trajectories)
+incidence <- array(y$incidence, c(150, 200))
+matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+        xlab = "Time", ylab = "Incidence")
+points(data, pch = 19, col = "red")
+```
+
+
+## Running projection using the end state
+
+```{r}
+state <- array(samples$observations$state, c(3, 200))
+pars <- array(samples$pars, c(3, 200))
+pars <- lapply(seq_len(200), function(i) packer$unpack(pars[, i]))
+
+sys <- dust_system_create(sis, pars, n_groups = length(pars), dt = 1)
+
+dust_system_set_state(sys, state)
+t <- seq(150, 200)
+y <- dust_system_simulate(sys, t)
+y <- dust_unpack_state(sys, y)
+```
+
+## Running projection using the end state
+
+```{r}
+matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+        xlab = "Time", ylab = "Incidence", xlim = c(0, 200))
+matlines(t, t(y$incidence), col = "blue")
+points(data, pch = 19, col = "red")
+```
+
+
+## Running counterfactual using the snapshot
+
+```{r}
+snapshot <- array(samples$observations$snapshots, c(3, 200))
+pars <- array(samples$pars, c(3, 200))
+f <- function(i) {
+  p <- packer$unpack(pars[, i])
+  p$schools_time <- c(0, 50, 130, 170, 180)
+  p$schools_open <- c(1, 0, 1, 0, 1)
+  p
+}
+pars <- lapply(seq_len(200), f)
+sys <- dust_system_create(sis, pars, n_groups = length(pars), dt = 1)
+
+dust_system_set_state(sys, snapshot)
+t <- seq(60, 150)
+y <- dust_system_simulate(sys, t)
+y <- dust_unpack_state(sys, y)
+```
+
+## Running counterfactual using the snapshot
+
+```{r}
+matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+        xlab = "Time", ylab = "Incidence")
+matlines(t, t(y$incidence), col = "blue")
+points(data, pch = 19, col = "red")
+```
+
 # Next steps
 
 * forward time predictions
@@ -489,15 +600,3 @@ samples_thin <- monty_samples_thin(samples,
 * deterministic (expectation) models as starting points
 * adaptive fitting (deterministic models only)
 * HMC
-
-# 2025 Roadmap {.smaller}
-
-* Some missing features from mcstate/dust1
-  - multi-stage filters
-  - restarting filters
-  - GPU-accelerated fitting
-  - SMC^2 and IF (perhaps)
-* Some almost-ready features
-  - Parallel tempering (exploit parallelism, cope with multiple modes)
-  - Automatic differentiation
-  - NUTS and HMC algorithms
