@@ -79,11 +79,11 @@ Coffee Break
 **11:15 - 12:30**
 Future of the Tools - Chair Katy Gaythorpe
 
-- Priorities and Roadmap
+- Priorities and Roadmap - Rich FitzJohn
 - New and upcoming features:
   - Gradient methods and autodiff - Marc Baguelin
   - Parallel tempering - Robert Verity
-  - GPU/HPC integration
+  - GPU/HPC integration - Rich FitzJohn
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
 - Open discussion
