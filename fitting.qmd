@@ -82,7 +82,7 @@ sir <- odin("models/sir-compare.R")
 
 ```{r}
 filter <- dust_filter_create(sir, data = data, time_start = 0,
-                             n_particles = 200)
+                             n_particles = 200, dt = 0.25)
 dust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2))
 ```
 
@@ -102,7 +102,7 @@ dust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2),
                     save_trajectories = TRUE)
 y <- dust_likelihood_last_trajectories(filter)
 y <- dust_unpack_state(filter, y)
-matplot(data$time, t(y$incidence), type = "l", col = "#00000033", lty = 1,
+matplot(data$time, t(y$incidence), type = "l", col = "#00000044", lty = 1,
         xlab = "Time", ylab = "Incidence")
 points(data, pch = 19, col = "red")
 ```
@@ -208,7 +208,7 @@ compute this density manually:
 dexp(0.2, 1 / 0.5, log = TRUE) + dexp(0.1, 1 / 0.3, log = TRUE)
 ```
 
-## From a dust filters to a monty model {.smaller}
+## From a dust filter to a monty model {.smaller}
 
 ```{r}
 filter
@@ -304,7 +304,7 @@ matplot(drop(samples$density[-(1:100), ]), type = "l", lty = 1)
 ```{r, cache = TRUE}
 vcv <- matrix(c(0.01, 0.005, 0.005, 0.005), 2, 2)
 sampler <- monty_sampler_random_walk(vcv)
-samples <- monty_sample(posterior, sampler, 5000, initial = samples,
+samples <- monty_sample(posterior, sampler, 2000, initial = samples,
                         n_chains = 4)
 matplot(samples$density, type = "l", lty = 1)
 ```
@@ -343,7 +343,7 @@ Use the `n_threads` argument, here for 4 threads
 
 ```{r}
 filter <- dust_filter_create(sir, data = data, time_start = 0,
-                             n_particles = 200, n_threads = 4)
+                             n_particles = 200, dt = 0.25, n_threads = 4)
 ```
 
 requires that you have OpenMP; this is very annoying on macOS
@@ -395,16 +395,16 @@ samples <- monty_sample_manual_collect("mypath")
 ```{r}
 likelihood <- dust_likelihood_monty(filter, packer, save_trajectories = TRUE)
 posterior <- likelihood + prior
-samples2 <- monty_sample(posterior, sampler, 100, initial = samples)
+samples <- monty_sample(posterior, sampler, 1000, n_chains = 4)
 ```
 
 ## Trajectories
 
 ```{r}
 trajectories <- dust_unpack_state(filter,
-                                  samples2$observations$trajectories)
-matplot(data$time, drop(trajectories$incidence), type = "l", lty = 1,
-        col = "#00000033", xlab = "Time", ylab = "Infection incidence")
+                                  samples$observations$trajectories)
+matplot(data$time, trajectories$incidence[, , 1], type = "l", lty = 1,
+        col = "#00000044", xlab = "Time", ylab = "Infection incidence")
 points(data, pch = 19, col = "red")
 ```
 ## Trajectories
@@ -412,8 +412,8 @@ points(data, pch = 19, col = "red")
 Trajectories are 4-dimensional
 
 ```{r}
-# (4 states x 20 time points x 100 samples x 1 chain)
-dim(samples2$observations$trajectories)
+# (4 states x 20 time points x 1000 samples x 4 chains)
+dim(samples$observations$trajectories)
 ```
 
 These can get very large quickly - there are two main ways to help reduce this:
@@ -440,19 +440,87 @@ While running
 ```r
 samples <- monty_sample(...,
                         burnin = 100,
-                        thinning_factor = 4)
+                        thinning_factor = 2)
 ```
 
 After running
 
-```r
-samples_thin <- monty_samples_thin(samples,
-                                   burnin = 100,
-                                   thinning_factor = 4)
+```{r}
+samples <- monty_samples_thin(samples,
+                              burnin = 500,
+                              thinning_factor = 2)
 ```
 
 * Thinning while running faster and uses less memory
 * After running is more flexible (e.g. can plot full chains of parameters between running and thinning)
+
+
+## Deterministic models from stochastic
+
+* Stochastic models written in odin, can be run deterministically
+* Runs by taking the expectation of any random draws
+* This gives two models for the price of one
+* However it might not be suitable for all models
+
+## Fitting in deterministic mode
+
+The key difference is to use `dust_unfilter_create`
+
+```{r}
+unfilter <- dust_unfilter_create(sir, data = data, time_start = 0, dt = 0.25)
+```
+
+Note as this is deterministic it produces the same likelihood every time
+
+```{r}
+dust_likelihood_run(unfilter, list(beta = 0.4, gamma = 0.2))
+dust_likelihood_run(unfilter, list(beta = 0.4, gamma = 0.2))
+```
+
+## Fitting in deterministic mode
+
+```{r}
+likelihood <- dust_likelihood_monty(unfilter, packer, save_trajectories = TRUE)
+posterior <- likelihood + prior
+samples_det <- monty_sample(posterior, sampler, 1000, n_chains = 4)
+samples_det <- monty_samples_thin(samples_det,
+                                  burnin = 500,
+                                  thinning_factor = 2)
+```
+
+## Stochastic v deterministic comparison
+
+```{r}
+y <- dust2::dust_unpack_state(filter, samples$observations$trajectories)
+incidence <- array(y$incidence, c(20, 1000))
+matplot(data$time, incidence, type = "l", lty = 1, col = "#00000044",
+        xlab = "Time", ylab = "Infection incidence", ylim = c(0, 75))
+points(data, pch = 19, col = "red")
+
+```
+
+## Stochastic v deterministic comparison
+
+```{r}
+y <- dust2::dust_unpack_state(filter, samples_det$observations$trajectories)
+incidence <- array(y$incidence, c(20, 1000))
+matplot(data$time, incidence, type = "l", lty = 1, col = "#00000044",
+        xlab = "Time", ylab = "Infection incidence", ylim = c(0, 75))
+points(data, pch = 19, col = "red")
+
+```
+
+## Stochastic v deterministic comparison
+
+```{r}
+pars_stochastic <- array(samples$pars, c(2, 500))
+pars_deterministic <- array(samples_det$pars, c(2, 500))
+plot(pars_stochastic[1, ], pars_stochastic[2, ], ylab = "gamma", xlab = "beta",
+     pch = 19, col = "blue")
+points(pars_deterministic[1, ], pars_deterministic[2, ], pch = 19, col = "red")
+legend("bottomright", c("stochastic fit", "deterministic fit"), pch = c(19, 19), 
+       col = c("blue", "red"))
+```
 
 ## Projections and counterfactuals
 
@@ -531,7 +599,7 @@ samples <- monty_samples_thin(samples, burnin = 100, thinning_factor = 8)
 ```{r}
 y <- dust_unpack_state(filter, samples$observations$trajectories)
 incidence <- array(y$incidence, c(150, 200))
-matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+matplot(data$time, incidence, type = "l", col = "#00000044", lty = 1,
         xlab = "Time", ylab = "Incidence")
 points(data, pch = 19, col = "red")
 ```
@@ -555,7 +623,7 @@ y <- dust_unpack_state(sys, y)
 ## Running projection using the end state
 
 ```{r}
-matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+matplot(data$time, incidence, type = "l", col = "#00000044", lty = 1,
         xlab = "Time", ylab = "Incidence", xlim = c(0, 200))
 matlines(t, t(y$incidence), col = "blue")
 points(data, pch = 19, col = "red")
@@ -585,7 +653,7 @@ y <- dust_unpack_state(sys, y)
 ## Running counterfactual using the snapshot
 
 ```{r}
-matplot(data$time, incidence, type = "l", col = "#00000033", lty = 1,
+matplot(data$time, incidence, type = "l", col = "#00000044", lty = 1,
         xlab = "Time", ylab = "Incidence")
 matlines(t, t(y$incidence), col = "blue")
 points(data, pch = 19, col = "red")
