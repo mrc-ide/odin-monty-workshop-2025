@@ -375,8 +375,7 @@ Then run these chains in parallel on your cluster, e.g., using `hipercow`:
 ```r
 monty_sample_manual_run(1, "mypath")
 monty_sample_manual_run(2, "mypath")
-
-monty_sample_manual_run(10, "mypath")
+monty_sample_manual_run(3, "mypath")
 ```
 
 And retrieve the result
@@ -384,22 +383,6 @@ And retrieve the result
 ```r
 samples <- monty_sample_manual_collect("mypath")
 ```
-
-. . .
-## Autocorrelation {.smaller}
-
-* Notion from time series, which translates for (P)MCMC in term of the steps of the chains
-* Autocorrelation refers to the correlation between the values of a time series at different points in time. In MCMC, this means correlation between successive samples.
-* In the context of MCMC, autocorrelation can most of the time be substituted instead of "bad mixing"
-* A signature of random-walk MCMC
-* Likely to bias estimate (wrong mean) and reduce variance compared with the true posterior distribution
-* Linked with the notion of Effective Sample Size, roughly speaking ESS gives the equivalent in i.i.d. samples
-
-## Autocorrelation in practice FAQ  {.smaller}
-
-* **Why is Autocorrelation a Problem?** For optimal performance, we want the samples to be independent and identically distributed (i.i.d.) samples from the target distribution.
-* **How to Detect Autocorrelation?** We can calculate the **autocorrelation function (ACF)**, which measures the correlation between the samples and their lagged values.
-* **How to Reduce Autocorrelation?** To mitigate the problem of autocorrelation, there's a number of strategies, including: using a longer chain, adapting the proposal distribution, using thinning or subsampling techniques. By reducing autocorrelation, we can obtain better estimates of the target distribution and improve the accuracy of our Bayesian inference.
 
 ## Thinning the chain
 
@@ -432,6 +415,7 @@ samples_thin <- monty_samples_thin(samples,
 
 * Save your trajectories at every collected sample
 * Save the final state at every sample (for onward simulation)
+* Save snapshots at intermediate timepoints of the state at every sample (for counterfactuals) 
 
 ## Trajectories
 
@@ -439,7 +423,6 @@ samples_thin <- monty_samples_thin(samples,
 likelihood <- dust_likelihood_monty(filter, packer, save_trajectories = TRUE)
 posterior <- likelihood + prior
 samples2 <- monty_sample(posterior, sampler, 100, initial = samples)
-dim(samples2$observations$trajectories)
 ```
 
 ## Trajectories
@@ -447,10 +430,55 @@ dim(samples2$observations$trajectories)
 ```{r}
 trajectories <- dust_unpack_state(filter,
                                   samples2$observations$trajectories)
-matplot(data$time, drop(trajectories$incidence),
-        type = "l", lty = 1, col = "#00000033")
+matplot(data$time, drop(trajectories$incidence), type = "l", lty = 1,
+        col = "#00000033", xlab = "Time", ylab = "Infection incidence")
 points(data, pch = 19, col = "red")
 ```
+## Trajectories
+
+Trajectories are 4-dimensional
+
+```{r}
+# (4 states x 20 time points x 100 samples x 1 chain)
+dim(samples2$observations$trajectories)
+```
+
+These can get very large quickly - there are two main ways to help reduce this:
+* Saving only a subset of the states
+* Thinning
+
+## Saving a subset of trajectories
+
+You can save a subset via specifying a named vector
+
+```{r}
+likelihood <- dust_likelihood_monty(filter, packer, 
+                                    save_trajectories = c("I", "incidence"))
+posterior <- likelihood + prior
+samples2 <- monty_sample(posterior, sampler, 100, initial = samples)
+dim(samples2$observations$trajectories)
+```
+
+## Thinning
+
+While running
+
+```r
+samples <- monty_sample(...,
+                        burnin = 100,
+                        thinning_factor = 4)
+```
+
+After running
+
+```r
+samples_thin <- monty_samples_thin(samples,
+                                   burnin = 100,
+                                   thinning_factor = 4)
+```
+
+* Thinning while running faster and uses less memory
+* After running is more flexible (e.g. can plot full chains of parameters between running and thinning)
 
 # Next steps
 
