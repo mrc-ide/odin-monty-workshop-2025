@@ -18,9 +18,10 @@ execute:
   - run multiple sets of paramters at once
   - run in parallel
 
-* Since `odin.dust`
-  - limited support for automatic differentiation
-  - more efficient paramter updating
+# What is new?
+
+* Since `odin.dust` (2024 rewrite)
+  - more efficient parameter updating
   - parameter packers
   - better parallelism
   - periodic variable resetting
@@ -34,11 +35,24 @@ execute:
 * Discrete models have a proper time basis, `dt` is now a reserved word
 * No longer use R's names for distribution functions
 * Named arguments allow clearer code
-* Automatic migration support is available!
+
+## Automatic migration
+
+```{r}
+sys <- odin2::odin({
+  update(y) <- y + rnorm(0, sd)
+  initial(y) <- 0
+  sd <- user()
+})
+```
+
+. . .
+
+You can use `odin_migrate()` to rewrite code.
 
 # Limitations
 
-* Much slower compilation time
+* Much slower compilation time (we will mitigate this by using js)
 * Delays less flexible than in version 1 (cannot be used in discrete time models, the default argument has been removed)
 
 # Practical considerations
@@ -48,20 +62,55 @@ execute:
   - mixed time models
   - compilation to JavaScript
   - extendable via C++
+
+# Practical considerations
+
 * The great package migration
   - `dust2` to `dust`
   - `odin2` to `odin` and all onto CRAN
+  - Once on CRAN, our ability to change the `dust` and `monty` C++ code is reduced
 
 # Planned new features
 
 ## GPU support
 
-## MPI support
+[graph from earlier benchmarks]
 
-## Automatic differentiation
+* Massively parallel stochastic models
+* Simulation with many parameter sets harder
 
-## Parallel tempering
+## MPI/HPC support
+
+[picture]
+
+* Alternative approach to parallelism
+* Use CPU-based HPC with fast networking
+* We are interested in models that can take advantage of these levels of parallelism
 
 ## More bounds checking and debugging
 
+## Support for events
+
+[bouncy ball gif]
+
 ## More radical changes to the DSL?
+
+* Vector-returning functions (multinomial, matrix mutiplication, etc)
+* Support flows
+* Composable sub models
+* What else?
+* Also monty's little DSL!
+
+## Automatic differentiation
+
+* Simple support implemented as a proof-of-concept
+  - deterministic discrete time models with no arrays
+* Expand to support ODE models, models with arrays
+* Implement algorithms in monty that can exploit gradients
+  - HMC, NUTS, variational inference
+
+* SMC^2, IF^2 and other statistical methods
+
+## Parallel tempering
+
+[picture from Bob?]
