@@ -50,7 +50,7 @@ execute:
 - Design of a new architecture, rewiring data, model and parameters
 - New statistical interface, **`monty`**
   - A new small BUGS-inspired DSL for priors
-  - Works well with with `odin` models, but usable on its own
+  - Works well with `odin` models, but usable on its own
   - Modular, and eventually easy to extend
   - Fully replaces `mcstate`
 
@@ -60,3 +60,8 @@ execute:
 ::: {.column width="60%"}
 ![](images/dependencies_odin_monty.png)
 :::
+
+::: {.column width="40%"}
+:::
+
+:::::
