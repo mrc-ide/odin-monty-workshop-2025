@@ -17,7 +17,7 @@ plot(data, pch = 19, col = "red")
 
 
 
-## Model with likelihood {.smaller}
+## Model with likelihood
 
 sir <- odin({
   update(S) <- S - n_SI
