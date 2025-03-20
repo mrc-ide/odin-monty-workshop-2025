@@ -1,4 +1,6 @@
 
+set.seed(42)
+
 ## Load packages
 
 library(odin2)
