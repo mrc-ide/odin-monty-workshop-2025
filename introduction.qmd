@@ -1,0 +1,62 @@
+---
+title: "Introduction"
+format:
+  revealjs:
+    logo: "images/logo.png"
+    slide-number: c/t
+    preview-links: auto
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
+execute:
+  echo: true
+  message: true
+  output: true
+  warning: true
+---
+
+# A brief history
+
+## "Clasic" `odin` - the beginnings (2016-2019)
+
+- **`odin`** created to integrate ODEs (e.g. for compartmental models) in R with a domain-specific language (DSL)
+- Limited support for difference (discrete-time) equations
+- Automatic translation to C; efficient solutions in little code
+- Used at Imperial for malaria, HIV, ebola and other diseases
+- No support for inference
+
+## COVID-19 response
+
+::: {style="text-align:center"}
+![(Knock et al 2021, Science Translational Medicine)](images/knock.jpeg){width=60%}
+:::
+
+## COVID-19 response
+
+- **`mcstate`** for statistical machinery (particle filter, pMCMC)
+- **`dust`** for efficient parallel simulation
+- **`odin.dust`** compile `odin` code to use `dust`
+- Collaborative work by the UK real-time modelling & research software engineers teams at Imperial College
+- Many, many, rough edges
+
+## Meanwhile...
+
+* Different versions of the stack have been picked up outside of Imperial
+  - Zurich, Munster, LSHTM, CDC, Pasteur, NC State, Norway, Switzerland
+* People tried to repurpose statistical machinery in mcstate
+* We hit limits of computational efficiency with the COVID model
+* The documentation (22 docs) and packages (>5) were hard to navigate and discover
+
+# Version 2
+
+- Design of a new architecture, rewiring data, model and parameters
+- New statistical interface, **`monty`**
+  - A new small BUGS-inspired DSL for priors
+  - Works well with with `odin` models, but usable on its own
+  - Modular, and eventually easy to extend
+  - Fully replaces `mcstate`
+
+## Key components
+
+::::: columns
+::: {.column width="60%"}
+![](images/dependencies_odin_monty.png)
+:::

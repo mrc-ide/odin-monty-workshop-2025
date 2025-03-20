@@ -3,6 +3,7 @@ title: "Future of the tools"
 format:
   revealjs:
     preview-links: auto
+    logo: "images/logo.png"
     footer: "[mrc-ide/odin-monty-workshop-2025](.)"
 execute:
   echo: true
