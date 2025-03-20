@@ -310,7 +310,7 @@ plot(t, y$I, type = "l", xlab = "Time", ylab = "Infected population")
 ```{r}
 #| echo: false
 #| results: "asis"
-r_output(model_compile_code("sir", "models/sir-age.R"))
+r_output(model_compile_code("sir_age", "models/sir-age.R"))
 ```
 
 ```{r}
@@ -359,7 +359,7 @@ legend("topright", c("children", "adults"), col = c("red", "blue"), lty = 1)
 ```{r}
 #| echo: false
 #| results: "asis"
-r_output(model_compile_code("sir", "models/sir-age-vax.R"))
+r_output(model_compile_code("sir_age_vax", "models/sir-age-vax.R"))
 ```
 
 ## Arrays: boundary conditions
