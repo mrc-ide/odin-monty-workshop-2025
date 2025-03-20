@@ -176,7 +176,6 @@ plot(t, y$I, type = "l", xlab = "Time", ylab = "Infected population")
 
 ## Time-varying inputs: using interpolate
 
-
 sir <- odin({
   update(S) <- S - n_SI
   update(I) <- I + n_SI - n_IR
@@ -220,7 +219,7 @@ plot(t, y$I, type = "l", xlab = "Time", ylab = "Infected population")
 
 ## Using arrays
 
-sir <- odin({
+sir_age <- odin({
   # Equations for transitions between compartments by age group
   update(S[]) <- S[i] - n_SI[i]
   update(I[]) <- I[i] + n_SI[i] - n_IR[i]
@@ -291,7 +290,7 @@ legend("topright", c("children", "adults"), col = c("red", "blue"), lty = 1)
 
 ## Arrays: model with age and vaccine
 
-sir <- odin({
+sir_age_vax <- odin({
   # Equations for transitions between compartments by age group
   update(S[, ]) <- new_S[i, j]
   update(I[, ]) <- I[i, j] + n_SI[i, j] - n_IR[i, j]
