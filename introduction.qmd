@@ -15,7 +15,7 @@ execute:
 
 # A brief history
 
-## "Clasic" `odin` - the beginnings (2016-2019)
+## "Classic" `odin` - the beginnings (2016-2019)
 
 - **`odin`** created to integrate ODEs (e.g. for compartmental models) in R with a domain-specific language (DSL)
 - Limited support for difference (discrete-time) equations
