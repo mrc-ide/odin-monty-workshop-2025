@@ -54,7 +54,7 @@ execute:
   - Modular, and eventually easy to extend
   - Fully replaces `mcstate`
 
-## Key components
+## A modular architecture
 
 ::::: columns
 ::: {.column width="60%"}
