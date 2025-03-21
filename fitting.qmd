@@ -54,7 +54,7 @@ Let's fit these data to a model
 ```{r}
 #| echo: false
 #| results: "asis"
-r_output(readLines("models/sir-incidence.R"))
+r_output(model_compile_code("sir", "models/sir-incidence.R"))
 ```
 
 We will link `cases` in the data to `incidence` in the model, and we will treat
@@ -66,7 +66,7 @@ We will link `cases` in the data to `incidence` in the model, and we will treat
 ```{r}
 #| echo: false
 #| results: "asis"
-r_output(readLines("models/sir-compare.R"))
+r_output(model_compile_code("sir", "models/sir-compare.R"))
 ```
 
 ```{r}
@@ -110,11 +110,7 @@ points(data, pch = 19, col = "red")
 
 # Particle MCMC {.smaller}
 
-We have a marginal likelihood estimator from our particle filter:
-
-```{r}
-dust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2))
-```
+So we have a marginal likelihood estimator from our particle filter
 
 . . .
 
