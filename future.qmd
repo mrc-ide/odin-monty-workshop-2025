@@ -75,32 +75,26 @@ You can use `odin_migrate()` to rewrite code.
 
 ## GPU support
 
-[graph from earlier benchmarks]
-
 * Massively parallel stochastic models
+  - Proof-of-concept: 1 consumer GPU = 5-10 32-core nodes
 * Simulation with many parameter sets harder
 
 ## MPI/HPC support
 
-[picture]
-
 * Alternative approach to parallelism
+  - based on message passing, rather than shared memory
 * Use CPU-based HPC with fast networking
-* We are interested in models that can take advantage of these levels of parallelism
-
-## More bounds checking and debugging
-
-## Support for events
-
-[bouncy ball gif]
+* We are interested in hearing about models that can take advantage of these levels of parallelism
 
 ## More radical changes to the DSL?
 
+* Support for events
+* More bounds checking and debugging support
 * Vector-returning functions (multinomial, matrix mutiplication, etc)
-* Support flows
-* Composable sub models
+* Describe models in terms of flows
+* Composable sub models (I am told this is very hard!)
+* Improve monty's little DSL!
 * What else?
-* Also monty's little DSL!
 
 ## Automatic differentiation
 
