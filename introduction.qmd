@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Welcome and opening remarks"
 format:
   revealjs:
     logo: "images/logo.png"
@@ -12,6 +12,28 @@ execute:
   output: true
   warning: true
 ---
+
+# Safety first
+
+## In case of fire
+
+::: {style="text-align:center"}
+![](images/Evacuation.png){width=90%}
+:::
+
+## WIFI
+
+- EDUROAM
+- for non-Academic participants
+
+**The Cloud**
+
+1. Connect to '_The Cloud' on your device
+2. Follow the instructions
+
+## Support
+
+![](images/HPRU MRC Imperial joint.png)
 
 # A brief history of odin
 
@@ -40,12 +62,14 @@ execute:
 ## Meanwhile...
 
 * Different versions of the stack have been picked up outside of Imperial
-  - Zurich, Munster, LSHTM, CDC, Lancaster, Pasteur, NC State, Norway, Switzerland
+  - Zurich, Munster, LSHTM, CDC, Fudan, Lancaster, Pasteur, NC State, Norway, Switzerland
 * People tried to repurpose statistical machinery in `mcstate`
 * We hit limits of computational efficiency and ability to manage inputs and outputs with the COVID model
 * The documentation (22 vignettes) and packages (>5) were hard to navigate and discover
 
 # Version 2
+
+## New software
 
 - Design of a new architecture, rewiring data, model and parameters
 - New statistical interface, **`monty`**
@@ -54,14 +78,27 @@ execute:
   - Modular, and eventually easy to extend
   - Fully replaces `mcstate`
 
-## A modular architecture
+## New community
 
-::::: columns
-::: {.column width="60%"}
-![](images/dependencies_odin_monty.png)
-:::
+- We want to understand how people are using these tools
+- What have you built, what do you want to build?
 
-::: {.column width="40%"}
-:::
+## For us to know
 
-:::::
+Who identifies as
+
+1. Novices
+2. Other tool users
+3. Some experience in odin/mcstate/monty
+
+## Aim of the workshop
+
+1. Introducing the 2nd generation of the toolkit
+2. Collecting feedback
+3. Building a community and fostering collaboration
+
+## Overview of workshop
+
+Day 1: Introducing the Tools and Applications
+
+Day 2: Feedback, Development, and Support
