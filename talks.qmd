@@ -2,12 +2,13 @@
 
 | Name                      | Institution         | Title |
 |---------------------------|--------------------|---------------------------------------------------------------|
+| Angélica Mata             | Fiocruz | A mechanistic understanding of yellow fever outbreak potential under seasonal variation |
+| Roseline Abah             | University of Abuja | Odin-Monty for Cost-Effectiveness Analysis (CEA) of Sodium Reduction Policies Modeling in Nigeria |
 | Lin Wang                  | University of Cambridge | Antigenic mapping of influenza A virus with highly accurate serology titer prediction using pathogen genomics and deep learning |
-| Julia Mayer               | Charité – Universitätsmedizin Berlin | Optimal immunisation strategies against RSV in children |
 | Lars Jakob Andreas Jonnerby | Imperial College London | Inferring influenza transmission dynamics from population immunity levels |
 | Ryan Imrie                | University of Glasgow | Post-pandemic changes in population immunity have reduced the likelihood of emergence of zoonotic coronaviruses |
 | Carl Andrew Pearson       | University of North Carolina | flepiMoP & paramix: Prospects for Modularization of and within Odin/Monty |
-| Roseline Abah             | University of Abuja | Odin-Monty for Cost-Effectiveness Analysis (CEA) of Sodium Reduction Policies Modeling in Nigeria |
+| Julia Mayer               | Charité – Universitätsmedizin Berlin | Optimal immunisation strategies against RSV in children |
 | Juan Vesga                | UK Health Security Agency | The transmission dynamics of Norovirus in England: a genotype-specific modelling study |
 | Thomas E Rawson           | Imperial College London | Modelling H5N1 Influenza in US Dairy Cows |
 
