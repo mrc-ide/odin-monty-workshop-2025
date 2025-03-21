@@ -62,7 +62,7 @@ execute:
 ## Meanwhile...
 
 * Different versions of the stack have been picked up outside of Imperial
-  - Zurich, Munster, LSHTM, CDC, Lancaster, Pasteur, NC State, Norway, Switzerland
+  - Zurich, Munster, LSHTM, CDC, Fudan, Lancaster, Pasteur, NC State, Norway, Switzerland
 * People tried to repurpose statistical machinery in `mcstate`
 * We hit limits of computational efficiency and ability to manage inputs and outputs with the COVID model
 * The documentation (22 vignettes) and packages (>5) were hard to navigate and discover
@@ -83,9 +83,15 @@ execute:
 - We want to understand how people are using these tools
 - What have you built, what do you want to build?
 
-## Aim of the workshop
+## For us to know
 
-A workshop with 3 objectives:
+Who identifies as
+
+1. Novices
+2. Other tool users
+3. Some experience in odin/mcstate/monty
+
+## Aim of the workshop
 
 1. Introducing the 2nd generation of the toolkit
 2. Collecting feedback
