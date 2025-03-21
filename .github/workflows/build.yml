@@ -27,9 +27,7 @@ jobs:
 
       - name: Render site
         run: |
-          quarto render --profile site
-          quarto render --profile slides
-          mv _slides _site/slides
+          quarto render
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'

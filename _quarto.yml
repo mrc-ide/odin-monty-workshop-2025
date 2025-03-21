@@ -1,5 +1,14 @@
-profile:
-  default: website
-  group:
-    - website
-    - slides
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Odin-Monty Workshop"
+  # author: "Odin-Monty Team"
+  navbar:
+    left:
+    - index.qmd
+    - agenda.qmd
+    - talks.qmd
+    - acknowledgments.qmd
+    - contact.qmd
