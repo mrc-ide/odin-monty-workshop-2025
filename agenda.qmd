@@ -29,7 +29,7 @@ Case studies
 Lunch Break
 
 **13:45 - 15:00**
-Inference with `monty` -- ([Slides](fitting.qmd)) -- Chair Peter Winskill
+Inference with `monty` -- ([Slides](fitting.qmd)) -- Chair [Peter Winskill](https://profiles.imperial.ac.uk/p.winskill)
 
 - Hands-on introduction to inference
 - Connecting odin models to data, and infering parameters with MCMC
@@ -60,7 +60,7 @@ Workshop dinner at [The Broadcaster](https://www.thebroadcaster.co.uk/) (Limited
 Coffee & networking
 
 **09:30 - 10:45**
-Feedback in small groups - Chair Thomas Rawson
+Feedback in small groups - Chair [Thomas Rawson](https://profiles.imperial.ac.uk/t.rawson)
 
 - Participants discuss specific challenges using `odin`/`monty`
 - Guided feedback on:
@@ -74,13 +74,13 @@ Feedback in small groups - Chair Thomas Rawson
 Coffee Break
 
 **11:15 - 12:30**
-Future of the Tools -- Chair Katy Gaythorpe -- ([Slides](future.qmd))
+Future of the Tools -- Chair [Katy Gaythorpe](https://profiles.imperial.ac.uk/k.gaythorpe) -- ([Slides](future.qmd))
 
-- Priorities and Roadmap - Rich FitzJohn
+- Priorities and Roadmap - [Rich FitzJohn](https://richfitz.github.io/)
 - New and upcoming features:
   - GPU/HPC integration - Rich FitzJohn
-  - Gradient methods and autodiff - Marc Baguelin
-  - Parallel tempering - Robert Verity
+  - Gradient methods and autodiff - [Marc Baguelin](https://profiles.imperial.ac.uk/m.baguelin)
+  - Parallel tempering - [Robert Verity](https://profiles.imperial.ac.uk/r.verity)
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
 - Open discussion
@@ -89,7 +89,7 @@ Future of the Tools -- Chair Katy Gaythorpe -- ([Slides](future.qmd))
 Extended lunch Break and drop-in session from 13:00
 
 **14:00 - 15:00**
-Teaching & Learning with wodin - Chair Pablo Perez Guzman
+Teaching & Learning with wodin -- Chair [Pablo Perez Guzman](https://profiles.imperial.ac.uk/p.perez-guzman)
 
 - Hurdles in learning & accessibility for teaching infectious disease modelling - [Julia Halder](https://www.iddo.org/julia-halder)
 - Enhancing teaching with wodin: A web-based approach to modelling - [Charlie Whittaker](https://www.charleswhittaker.net/)
