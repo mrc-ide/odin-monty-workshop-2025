@@ -29,7 +29,11 @@ execute:
 **The Cloud**
 
 1. Connect to '_The Cloud' on your device
-2. Follow the instructions 
+2. Follow the instructions
+
+## Support
+
+![](images/HPRU MRC Imperial joint.png)
 
 # A brief history of odin
 
@@ -65,6 +69,8 @@ execute:
 
 # Version 2
 
+## New software
+
 - Design of a new architecture, rewiring data, model and parameters
 - New statistical interface, **`monty`**
   - A new small BUGS-inspired DSL for priors
@@ -72,25 +78,12 @@ execute:
   - Modular, and eventually easy to extend
   - Fully replaces `mcstate`
 
-## A modular architecture
+## New community
 
-::::: columns
-::: {.column width="60%"}
-![](images/dependencies_odin_monty.png)
-:::
+- We want to understand how people are using these tools
+- What have you built, what do you want to build?
 
-::: {.column width="40%"}
-:::
-
-:::::
-
-## Ressource
-
-The [odin-monty](https://mrc-ide.github.io/odin-monty/) book 
-
-# Time to gather together!
-
-## Aim
+## Aim of the workshop
 
 A workshop with 3 objectives:
 
@@ -103,7 +96,3 @@ A workshop with 3 objectives:
 Day 1: Introducing the Tools and Applications
 
 Day 2: Feedback, Development, and Support
-
-## Support
-
-![](images/HPRU MRC Imperial joint.png)
