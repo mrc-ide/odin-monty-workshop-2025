@@ -18,14 +18,18 @@ execute:
 ## In case of fire
 
 ::: {style="text-align:center"}
-![evacuation instructions](images/Evacuation.png){width=90%}
+![](images/Evacuation.png){width=90%}
 :::
 
 ## WIFI
 
 - EDUROAM
-- for non-Academic participants **The Cloud**
-Free Wi-Fi is available throughout the college via Sky Wi-Fi via The Cloud. Connect to The Cloud by searching for Wi-Fi networks on your device, connecting to the '_The Cloud' network and following the instructions that show on screen. 
+- for non-Academic participants
+
+**The Cloud**
+
+1. Connect to '_The Cloud' on your device
+2. Follow the instructions 
 
 # A brief history of odin
 
@@ -79,3 +83,23 @@ Free Wi-Fi is available throughout the college via Sky Wi-Fi via The Cloud. Conn
 :::
 
 :::::
+
+# Time to gather together!
+
+## Aim
+
+A workshop with 3 objectives:
+
+1. Introducing the 2nd generation of the toolkit
+2. Collecting feedback
+3. Building a community and fostering collaboration
+
+## Overview of workshop
+
+Day 1: Introducing the Tools and Applications
+
+Day 2: Feedback, Development, and Support
+
+## Support
+
+![](images/HPRU MRC Imperial joint.png)
