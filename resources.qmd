@@ -1,0 +1,22 @@
+# Resources
+
+* The workshop site: [`github.com/mrc-ide/odin-monty-workshop-2025`](https://github.com/mrc-ide/odin-monty-workshop-2025/)
+* The odin/monty book: [`mrc-ide.github.io/odin-monty`](https://mrc-ide.github.io/odin-monty/)
+
+Files from the interactive sessions:
+
+* [`odin.R`](odin.R) - code from the introduction to odin
+  - [`sir-basic-ode.R`](models/sir-basic-ode.R) - basic ODE model
+  - [`sir-basic.R`](models/sir-basic.R) - basic stochastic model
+  - [`sir-incidence.R`](models/sir-incidence.R) - adding incidence
+  - [`sir-time.R`](models/sir-time.R) - adding time dependence
+  - [`sir-interpolate-constant.R`](models/sir-interpolate-constant.R) - adding interpolation
+  - [`sir-age.R`](models/sir-age.R) - adding age structure
+  - [`sir-age-vax.R`](models/sir-age-vax.R) - adding vaccination
+
+* [`fitting.R`](fitting.R) - code from fitting
+  - [`incidence.csv`](data/incidence.csv) - data from the first example
+  - [`sir-incidence.R`](models/sir-incidence.R) - basic SIR model with incidence
+  - [`sir-compare.R`](models/sir-compare.R) - adding comparison to data
+  - [`sis.csv`](data/sis.csv) - data from the second example
+  - [`sis.R`](models/sis.R) - an SIS model

@@ -33,6 +33,8 @@ In the interactive sessions, we will work through two slide decks:
 * Monday AM: [writing odin code](slides/odin.html)
 * Monday PM: [fitting odin models to data](slides/fitting.html)
 
+Slide decks from talks will be added to the [agenda](agenda.qmd) for future reference.
+
 ## Installation instructions
 
 We strongly recommend version 4.4.x of R; older versions may work (and in particular 4.3.x is known to work).
@@ -56,6 +58,10 @@ If this fails, you should follow instructions for your platform:
 * Windows: Install "RTools", for 4.4.x of R see [these instructions](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
 * macOS: Install the XCode command line tools following [these instructions](https://mac.r-project.org/tools/)
 * Linux: This varies by distribution, and most users will likely have everything they need if they can install any packages.
+
+### Resources
+
+All files can be found on the [resources](resources.qmd) page.  Slides are linked above and from the [agenda](agenda.qmd)
 
 ### Registration Deadline {.unnumbered}
 
