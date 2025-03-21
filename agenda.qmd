@@ -93,7 +93,7 @@ Teaching & Learning with wodin - Chair Pablo Perez Guzman
 
 - Hurdles in learning & accessibility for teaching infectious disease modelling - [Julia Halder](https://www.iddo.org/julia-halder)
 - Enhancing teaching with wodin: A web-based approach to modelling - [Charlie Whittaker](https://www.charleswhittaker.net/)
-- wodin for policy scenario - [OJ Watson](https://www.ojwatson.co.uk/)
+- [wodin for policy scenario](https://docs.google.com/presentation/d/1SsmF3OxElWomh4CXyU8lvKL8xV_lQXOlP3PxQs0z4GQ/edit?usp=sharing) - [OJ Watson](https://www.ojwatson.co.uk/)
 - Open discussion
 
 **15:00 - 15:30**
