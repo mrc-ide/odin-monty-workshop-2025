@@ -8,7 +8,7 @@
 Registration & Coffee
 
 **09:30 - 09:45**
-Welcome and opening remarks
+Welcome and opening remarks -- ([Slides](introduction.qmd))
 
 **09:45 – 11:15** Building a model with `odin` -- ([Slides](odin.qmd))
   
