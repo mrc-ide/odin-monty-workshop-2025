@@ -84,6 +84,10 @@ execute:
 
 :::::
 
+## Ressource
+
+The [odin-monty](https://mrc-ide.github.io/odin-monty/) book 
+
 # Time to gather together!
 
 ## Aim
