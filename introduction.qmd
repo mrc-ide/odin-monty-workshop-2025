@@ -15,13 +15,13 @@ execute:
 
 # Safety first
 
-## In case of fire
+## 🔥🔥🔥 In case of fire 🔥🔥🔥
 
 ::: {style="text-align:center"}
 ![](images/Evacuation.png){width=90%}
 :::
 
-## WIFI
+## 🛜 WIFI
 
 - EDUROAM
 - for non-Academic participants
@@ -45,13 +45,13 @@ execute:
 - Used at Imperial for malaria, HIV, ebola and other diseases
 - No support for inference
 
-## COVID-19 response (2020-2022)
+## 😷 COVID-19 response (2020-2022)
 
 ::: {style="text-align:center"}
 ![(Knock et al 2021, Science Translational Medicine)](images/knock.jpeg){width=60%}
 :::
 
-## COVID-19 response (2020-2022)
+## 😷 COVID-19 response (2020-2022)
 
 - **`mcstate`** for statistical machinery (particle filter, pMCMC)
 - **`dust`** for efficient parallel simulation
