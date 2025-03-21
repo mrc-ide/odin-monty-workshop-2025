@@ -4,5 +4,6 @@ project:
   render:
     - odin.qmd
     - fitting.qmd
+    - future.qmd
 
 format: revealjs

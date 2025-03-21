@@ -8,14 +8,11 @@
 Registration & Coffee
 
 **09:30 - 09:45**
-Welcome and opening remarks
+Welcome and opening remarks -- ([Slides](introduction.qmd))
 
-**09:45 – 11:15**
-Building a model with [odin](https://mrc-ide.github.io/odin2/)
-
-  [Session slides](slides/odin.html)
+**09:45 – 11:15** Building a model with `odin` -- ([Slides](odin.qmd))
   
-  - Hands on basic introduction odin-monty: building an epidemiological model from scratch
+  - Hands on basic introduction `odin`: building some simple epidemiological models from scratch
   - A hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism
 
 **11:15 - 11:30**
@@ -24,18 +21,18 @@ Coffee Break
 **11:30 - 12:45**
 Case studies
 
-- Chemical Kinetics Modelling - Leonie Lorenz (EMBL-EBI)
-- Covid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)
-- Modelling mpox - Ed Knock (Imperial)
+- Chemical Kinetics Modelling - [Leonie Lorenz](https://www.ebi.ac.uk/people/person/leonie-lorenz/) ([EMBL-EBI](https://www.ebi.ac.uk/research/lees/))
+- Covid 19 pandemic in French Polynesia – [Lloyd Chapman](https://www.lancaster.ac.uk/maths/people/lloyd-chapman) ([Lancaster](https://www.lancaster.ac.uk/maths/))
+- Modelling mpox - [Ed Knock](https://profiles.imperial.ac.uk/e.knock) ([Imperial](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/))
 
 **12:45 - 13:45**
 Lunch Break
 
 **13:45 - 15:00**
-Inference with [monty](https://mrc-ide.github.io/monty/) - Chair Peter Winskill
+Inference with `monty` -- ([Slides](fitting.qmd)) -- Chair Peter Winskill
 
 - Hands-on introduction to inference
-- Connecting odin models to data, and infering parameters with mcmc
+- Connecting odin models to data, and infering parameters with MCMC
 - Collect information on hidden models states while running models
 - Running counterfactuals and simulations
 
@@ -46,7 +43,7 @@ Coffee Break
 Lightning talks
 
 - Applications in practice (Hybrid)
-- Short 2 minutes presentations from participants (online + in-person)
+- [Short 2 minutes presentations from participants](talks.qmd) (online + in-person)
 - Open to additional registered online attendees
 
 **17:00 - 18:30**
@@ -63,9 +60,9 @@ Workshop dinner at [The Broadcaster](https://www.thebroadcaster.co.uk/) (Limited
 Coffee & networking
 
 **09:30 - 10:45**
-Feedback in small groups - Chair Thomas Rawson 
+Feedback in small groups - Chair Thomas Rawson
 
-- Participants discuss specific challenges using odin/monty
+- Participants discuss specific challenges using `odin`/`monty`
 - Guided feedback on:
   - Interface design
   - Development priorities
@@ -77,13 +74,13 @@ Feedback in small groups - Chair Thomas Rawson
 Coffee Break
 
 **11:15 - 12:30**
-Future of the Tools - Chair Katy Gaythorpe
+Future of the Tools -- Chair Katy Gaythorpe -- ([Slides](future.qmd))
 
 - Priorities and Roadmap - Rich FitzJohn
 - New and upcoming features:
+  - GPU/HPC integration - Rich FitzJohn
   - Gradient methods and autodiff - Marc Baguelin
   - Parallel tempering - Robert Verity
-  - GPU/HPC integration - Rich FitzJohn
 - Survey “Out of 1-10” priorities with menti
 - Roadmap and new features based on collected feedback
 - Open discussion
@@ -94,9 +91,9 @@ Extended lunch Break and drop-in session from 13:00
 **14:00 - 15:00**
 Teaching & Learning with wodin - Chair Pablo Perez Guzman
 
-- Hurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder
-- Enhancing teaching with wodin: A web-based approach to modelling - Charlie Whittaker
-- wodin for policy scenario - OJ Watson
+- Hurdles in learning & accessibility for teaching infectious disease modelling - [Julia Halder](https://www.iddo.org/julia-halder)
+- Enhancing teaching with wodin: A web-based approach to modelling - [Charlie Whittaker](https://www.charleswhittaker.net/)
+- wodin for policy scenario - [OJ Watson](https://www.ojwatson.co.uk/)
 - Open discussion
 
 **15:00 - 15:30**

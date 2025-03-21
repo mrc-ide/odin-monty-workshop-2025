@@ -3,7 +3,7 @@ title: "Fitting odin models with monty"
 format:
   revealjs:
     preview-links: auto
-    footer: "[mrc-ide/odin-monty](.)"
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
 execute:
   echo: true
   message: true
@@ -189,14 +189,18 @@ prior <- monty_dsl({
   beta ~ Exponential(mean = 0.5)
   gamma ~ Exponential(mean = 0.3)
 })
-prior
 ```
+
+. . .
 
 This is a "monty model"
 
 ```{r}
+prior
 monty_model_density(prior, c(0.2, 0.1))
 ```
+
+. . .
 
 compute this density manually:
 
@@ -389,7 +393,8 @@ samples <- monty_sample_manual_collect("mypath")
 ## Trajectories
 
 ```{r}
-likelihood <- dust_likelihood_monty(filter, packer, save_trajectories = TRUE)
+likelihood <- dust_likelihood_monty(filter, packer,
+                                    save_trajectories = TRUE)
 posterior <- likelihood + prior
 samples <- monty_sample(posterior, sampler, 1000, n_chains = 4)
 ```

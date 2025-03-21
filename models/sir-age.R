@@ -10,20 +10,22 @@ p_IR <- 1 - exp(-gamma * dt) # I to R
 
 # Calculate force of infection
 
-# age-structured contact matrix: m[i, j] is mean number of contacts an
-# individual in group i has with an individual in group j per time unit
-
+# age-structured contact matrix: m[i, j] is mean number
+# of contacts an individual in group i has with an
+# individual in group j per time unit
 m <- parameter()
 
-# here s_ij[i, j] gives the mean number of contacts and individual in group
-# i will have with the currently infectious individuals of group j
+# here s_ij[i, j] gives the mean number of contacts an
+# individual in group i will have with the currently
+# infectious individuals of group j
 s_ij[, ] <- m[i, j] * I[j]
 
-# lambda[i] is the total force of infection on an individual in group i 
+# lambda[i] is the total force of infection on an
+# individual in group i
 lambda[] <- beta * sum(s_ij[i, ])
 
-# Draws from binomial distributions for numbers changing between
-# compartments:
+# Draws from binomial distributions for numbers
+# changing between compartments:
 n_SI[] <- Binomial(S[i], p_SI[i])
 n_IR[] <- Binomial(I[i], p_IR)
 
@@ -32,13 +34,11 @@ initial(I[]) <- I0[i]
 initial(R[]) <- 0
 initial(incidence, zero_every = 1) <- 0
 
-# User defined parameters - default in parentheses:
 S0 <- parameter()
 I0 <- parameter()
 beta <- parameter(0.2)
 gamma <- parameter(0.1)
 
-# Dimensions of arrays
 n_age <- parameter()
 dim(S, S0, n_SI, p_SI) <- n_age
 dim(I, I0, n_IR) <- n_age
