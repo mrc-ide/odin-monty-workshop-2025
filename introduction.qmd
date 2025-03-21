@@ -13,9 +13,9 @@ execute:
   warning: true
 ---
 
-# A brief history
+# A brief history of odin
 
-## "Classic" `odin` - the beginnings (2016-2019)
+## "Classic" odin - the beginnings (2016-2019)
 
 - **`odin`** created to integrate ODEs (e.g. for compartmental models) in R with a domain-specific language (DSL)
 - Limited support for difference (discrete-time) equations
@@ -23,13 +23,13 @@ execute:
 - Used at Imperial for malaria, HIV, ebola and other diseases
 - No support for inference
 
-## COVID-19 response
+## COVID-19 response (2020-2022)
 
 ::: {style="text-align:center"}
 ![(Knock et al 2021, Science Translational Medicine)](images/knock.jpeg){width=60%}
 :::
 
-## COVID-19 response
+## COVID-19 response (2020-2022)
 
 - **`mcstate`** for statistical machinery (particle filter, pMCMC)
 - **`dust`** for efficient parallel simulation
@@ -40,10 +40,10 @@ execute:
 ## Meanwhile...
 
 * Different versions of the stack have been picked up outside of Imperial
-  - Zurich, Munster, LSHTM, CDC, Pasteur, NC State, Norway, Switzerland
-* People tried to repurpose statistical machinery in mcstate
-* We hit limits of computational efficiency with the COVID model
-* The documentation (22 docs) and packages (>5) were hard to navigate and discover
+  - Zurich, Munster, LSHTM, CDC, Lancaster, Pasteur, NC State, Norway, Switzerland
+* People tried to repurpose statistical machinery in `mcstate`
+* We hit limits of computational efficiency and ability to manage inputs and outputs with the COVID model
+* The documentation (22 vignettes) and packages (>5) were hard to navigate and discover
 
 # Version 2
 
