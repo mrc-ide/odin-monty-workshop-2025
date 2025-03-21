@@ -25,7 +25,7 @@ execute:
   - more efficient parameter updating
   - parameter packers
   - better parallelism
-  - periodic variable resetting
+  - periodic variable resetting (`zero_every`)
   - better error messages
   - compile time array bounds checking
   - debugging support

@@ -131,9 +131,9 @@ r_output(readLines("models/sir-basic.R"))
 
 ::: {.column width="45%"}
 \begin{gather*}
-S(t + dt) = S(t) - n_{SI}\\
-I(t + dt) = I(t) + n_{SI} - n_{IR}\\
-R(t) = R(t) + n_{IR}
+S(t + \Delta t) = S(t) - n_{SI}\\
+I(t + \Delta t) = I(t) + n_{SI} - n_{IR}\\
+R(t + \Delta t) = R(t) + n_{IR}
 \end{gather*}
 
 :::
@@ -235,7 +235,7 @@ t <- seq(0, 20, by = 1 / 128)
 y <- dust_system_simulate(sys, t)
 y <- dust_unpack_state(sys, y)
 
-plot(t[t %% 1 == 0], y$incidence[t %% 1 == 0], type = "l",
+plot(t[t %% 1 == 0], y$incidence[t %% 1 == 0], type = "o", pch = 19,
      ylab = "Infection incidence", xlab = "Time")
 lines(t, y$incidence, col = "red")
 ```
@@ -302,6 +302,7 @@ y <- dust_system_simulate(sys, t)
 y <- dust_unpack_state(sys, y)
 
 plot(t, y$I, type = "l", xlab = "Time", ylab = "Infected population")
+abline(v = 30, lty = 3)
 ```
 
 
@@ -324,11 +325,14 @@ sir_age <- odin("models/sir-age.R")
 ```{r}
 pars <- list(S0 = c(990, 1000),
              I0 = c(10, 0),
-             m = array(c(1.8, 0.4, 0.4, 1.2) / 2000, dim = c(2, 2)),
+             m = matrix(c(1.8, 0.4, 0.4, 1.2) / 2000, 2, 2),
              beta = 0.2,
              gamma = 0.1,
              n_age = 2)
 ```
+
+Remember: `m[i, j]` is the mean number of contacts per time unit for an individual in group `i` has with an individual in group `j`
+
 
 
 ## Using arrays
