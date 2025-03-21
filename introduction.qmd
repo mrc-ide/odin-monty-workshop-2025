@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Welcome and opening remarks"
 format:
   revealjs:
     logo: "images/logo.png"
@@ -12,6 +12,20 @@ execute:
   output: true
   warning: true
 ---
+
+# Safety first
+
+## In case of fire
+
+::: {style="text-align:center"}
+![evacuation instructions](images/Evacuation.png){width=90%}
+:::
+
+## WIFI
+
+- EDUROAM
+- for non-Academic participants **The Cloud**
+Free Wi-Fi is available throughout the college via Sky Wi-Fi via The Cloud. Connect to The Cloud by searching for Wi-Fi networks on your device, connecting to the '_The Cloud' network and following the instructions that show on screen. 
 
 # A brief history of odin
 
