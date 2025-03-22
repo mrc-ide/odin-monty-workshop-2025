@@ -47,7 +47,7 @@ execute:
 ## Topic 2 – Documentation & Learning Materials
 
 - 🟢 **Novices:** What formats (videos, cheat sheets, books) do you prefer?  
-- 🟡 **Other tools:** What resources helped you most? What was hard to find? Something we should implement?  
+- 🟡 **Other tools:** What resources helped you most? What was hard to find? Something that exists elsewhere we should implement?  
 - 🔵 **odin users:** What helped you most learning about odin? Do you like the odin-monty book? What’s still missing?
 
 ##  Topic 3 – Work Practice

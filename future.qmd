@@ -96,16 +96,37 @@ You can use `odin_migrate()` to rewrite code.
 * Improve monty's little DSL!
 * What else?
 
-## Automatic differentiation
+## Improvement of supported particle methods?
+
+* SMC^2, IF^2
+* PF other than bootstrap
+* Methods based on estimates of ratio of density rather than ratio of density estimates
+
+# Automatic differentiation
+
+## Gradient
+
+- Random-walk MCMC becomes inefficient when
+  - Dimensionality is high
+  - Non-linear correlation structure
+- Gradient gives the local direction at a point
+
+## Backward automatic differentiation {.smaller}
+
+![](images/SSM_autodiff.png)
+
+- Algorithm developed for `odin` models, but not fully implemented
+- Does not scale with number of parameters!
+- Pilot test: for 2.5 times the likelihood time, we get likelihood + "exact" gradient
+
+## Autodiff roadmap
 
 * Simple support implemented as a proof-of-concept
   - deterministic discrete time models with no arrays
 * Expand to support ODE models, models with arrays
-* Implement algorithms in monty that can exploit gradients
+* Fully implement algorithms in monty that can exploit gradients
   - HMC, NUTS, variational inference
-
-* SMC^2, IF^2 and other statistical methods
 
 ## Parallel tempering
 
-[picture from Bob?]
+![](images/PT_melting.jpg)
