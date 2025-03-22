@@ -16,7 +16,7 @@ execute:
 
 * Since `odin` v1 (classic odin, pre 2020)
   - comparison to data and likelihood support
-  - run multiple sets of paramters at once
+  - run multiple sets of parameters at once
   - run in parallel
 
 # What is new?
@@ -103,6 +103,110 @@ You can use `odin_migrate()` to rewrite code.
 * Methods based on estimates of ratio of density rather than ratio of density estimates
 
 # Automatic differentiation
+
+## Random Walk vs Gradient-Based Inference
+
+- **Goal**: Sample from the posterior efficiently
+- 🐢 **Random Walk MCMC**:
+  - No knowledge of shape of posterior
+  - Can get stuck in tight or curved regions
+- ⚡ **Gradient-based methods**:
+  - Use the local slope to move efficiently
+  - Better scaling in high dimensions
+
+## 🍌 The Banana Problem {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+
+```{r}
+library(monty)
+m <- monty_example("banana", sigma = 0.5)
+
+a <- seq(-2, 6, length.out = 1000)
+b <- seq(-2.5, 2.5, length.out = 1000)
+z <- outer(a, b, function(alpha, beta) {
+  exp(monty_model_density(m, rbind(alpha, beta)))
+})
+
+```
+:::
+
+::: {.column width="50%"}
+<div style="margin-top: -1em">
+```{r, echo=FALSE, fig.width=6, fig.height=6, out.width="100%"}
+par(mar = c(3, 3, 1, 1))
+image(a, b, z, col = hcl.colors(30), xlab = "alpha", ylab = "beta")
+```
+</div>
+:::
+
+:::::
+
+- This posterior has a **strong nonlinear correlation**
+- Random walk proposals struggle to explore this space
+
+## 🐢 Random Walk MCMC: Limitation {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+set.seed(42)
+sampler_rw <- monty_sampler_random_walk(vcv = diag(2)*1.5)
+samples_rw <- monty_sample(m, sampler_rw, n_steps = 1000, initial = c(0,0))
+```
+- Acceptance rate `r length(unique(samples_rw$pars[1,,1]))/1000`
+- Small steps to avoid rejection → **slow mixing**
+- Misses curved geometry
+- Inefficient in higher dimensions
+:::
+
+::: {.column width="50%"}
+<div style="margin-top: -1em">
+```{r, echo=FALSE, fig.width=5, fig.height=5, out.width="100%"}
+par(mar = c(3, 3, 1, 1))
+plot(samples_rw$pars[1,,1], type = "l", main = "Random Walk MCMC")
+```
+</div>
+:::
+
+:::::
+
+## ⚡ Gradient-Based: Faster & Smarter {.smaller}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+sampler_hmc <- monty::monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)
+samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
+```
+
+- Acceptance rate `r length(unique(samples_hmc$pars[1,,1]))/1000`
+- Uses **gradient of the log posterior**
+- Efficiently explores curved shapes
+- Much **better mixing** in fewer steps
+
+:::
+
+::: {.column width="50%"}
+<div style="margin-top: -1em">
+```{r, echo=FALSE, fig.width=5, fig.height=5, out.width="100%"}
+par(mar = c(3, 3, 1, 1))
+plot(samples_hmc$pars[1,,1], type = "l", main = "HMC")
+```
+</div>
+:::
+
+:::::
+
+## ✅ Summary
+
+- Gradient-based methods like **HMC/NUTS**:
+  - Are more efficient, especially for complex or high-dimensional posteriors
+  - Adapt to local geometry (no tuning random walk scale!)
+  - Often yield **better convergence diagnostics**
+
+- 🚀 For users fitting models: you'll get **faster, more reliable inference** with gradients when available!
 
 ## Gradient
 
