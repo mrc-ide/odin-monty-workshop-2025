@@ -178,7 +178,7 @@ plot(samples_rw$pars[1,,1], type = "l", main = "Random Walk MCMC")
 ::::: columns
 ::: {.column width="50%"}
 ```{r}
-sampler_hmc <- monty::monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)
+sampler_hmc <- monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)
 samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 ```
 
