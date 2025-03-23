@@ -151,7 +151,7 @@ image(a, b, z, col = hcl.colors(30), xlab = "alpha", ylab = "beta")
 
 ::::: columns
 ::: {.column width="50%"}
-```{r}
+```{r sampling_RW}
 set.seed(42)
 sampler_rw <- monty_sampler_random_walk(vcv = diag(2)*1.5)
 samples_rw <- monty_sample(m, sampler_rw, n_steps = 1000, initial = c(0,0))
@@ -177,7 +177,7 @@ plot(samples_rw$pars[1,,1], type = "l", main = "Random Walk MCMC")
 
 ::::: columns
 ::: {.column width="50%"}
-```{r}
+```{r sampling_HMC}
 sampler_hmc <- monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)
 samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 ```
