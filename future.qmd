@@ -179,7 +179,7 @@ plot(samples_rw$pars[1,,1], type = "l", main = "Random Walk MCMC")
 ::: {.column width="50%"}
 ```{r sampling_HMC}
 sampler_hmc <- monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)
-samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
+# samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 ```
 
 - Acceptance rate `r length(unique(samples_hmc$pars[1,,1]))/1000`
@@ -194,7 +194,7 @@ samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 <div style="margin-top: -1em">
 ```{r, echo=FALSE, fig.width=5, fig.height=5, out.width="100%"}
 par(mar = c(3, 3, 1, 1))
-plot(samples_hmc$pars[1,,1], type = "l", main = "HMC")
+plot(samples_rw$pars[1,,1], type = "l", main = "HMC")
 ```
 </div>
 :::
