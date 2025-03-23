@@ -104,7 +104,7 @@ You can use `odin_migrate()` to rewrite code.
 
 # Automatic differentiation
 
-## Random Walk vs Gradient-Based Inference
+## Gradient vs random walk
 
 - **Goal**: Sample from the posterior efficiently
 - 🐢 **Random Walk MCMC**:
@@ -130,6 +130,9 @@ z <- outer(a, b, function(alpha, beta) {
 })
 
 ```
+
+- This posterior has a **strong nonlinear correlation**
+- Random walk proposals struggle to explore this space
 :::
 
 ::: {.column width="50%"}
@@ -143,8 +146,6 @@ image(a, b, z, col = hcl.colors(30), xlab = "alpha", ylab = "beta")
 
 :::::
 
-- This posterior has a **strong nonlinear correlation**
-- Random walk proposals struggle to explore this space
 
 ## 🐢 Random Walk MCMC: Limitation {.smaller}
 
@@ -185,6 +186,7 @@ samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 - Uses **gradient of the log posterior**
 - Efficiently explores curved shapes
 - Much **better mixing** in fewer steps
+- But potentially expensive to compute gradients
 
 :::
 
@@ -199,6 +201,15 @@ plot(samples_hmc$pars[1,,1], type = "l", main = "HMC")
 
 :::::
 
+## Reverse AutoDiff in odin
+
+- Think of your model as a **computational graph**: data + parameters → output
+- Reverse AD walks **backward** through this graph to efficiently compute gradients
+- ✅ **More accurate**  than numerical methods
+- ✅ **Much faster** (especially in high dimensions)
+
+🛠 In `odin`, you write the model normally — gradients come for free
+
 ## ✅ Summary
 
 - Gradient-based methods like **HMC/NUTS**:
@@ -208,22 +219,7 @@ plot(samples_hmc$pars[1,,1], type = "l", main = "HMC")
 
 - 🚀 For users fitting models: you'll get **faster, more reliable inference** with gradients when available!
 
-## Gradient
-
-- Random-walk MCMC becomes inefficient when
-  - Dimensionality is high
-  - Non-linear correlation structure
-- Gradient gives the local direction at a point
-
-## Backward automatic differentiation {.smaller}
-
-![](images/SSM_autodiff.png)
-
-- Algorithm developed for `odin` models, but not fully implemented
-- Does not scale with number of parameters!
-- Pilot test: for 2.5 times the likelihood time, we get likelihood + "exact" gradient
-
-## Autodiff roadmap
+## 🗺️ Autodiff roadmap
 
 * Simple support implemented as a proof-of-concept
   - deterministic discrete time models with no arrays
