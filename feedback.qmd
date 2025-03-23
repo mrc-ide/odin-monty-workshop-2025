@@ -1,0 +1,68 @@
+---
+title: "Small group feedback"
+format:
+  revealjs:
+    preview-links: auto
+    logo: "images/logo.png"
+    footer: "[mrc-ide/odin-monty-workshop-2025](.)"
+execute:
+  echo: true
+  message: true
+  output: true
+  warning: true
+---
+
+## Help Us Improve odin & monty
+
+- **Goal**: Gather actionable feedback based on your experience (including yesterday!)
+- **Structure**: Group discussions guided by 4 key topic (Interface design, Documentation, Work practice, Community)
+- **Outcome**: Identify what works well and where improvements are needed
+
+## Group Setup
+
+1. 🟢 **Novices** (no prior tool experience)
+2. 🟡 **Users of other tools** (e.g. Stan, JAGS, BayesTools)
+3. 🔵 **odin/mcstate/monty users**
+  
+- Each group sits at a table of ~10 people.
+- Each table has a QR code to capture discussion points in a shared Google Doc
+
+## ⏱️ Format and Timing
+
+- Each topic gets:
+  - **8 minutes** for group discussion
+  - **7 minutes** for sharing back with the room
+- Please identify if possible:
+  - 1 thing you *liked* about the toolkit 
+  - 1 thing that *needs improvement*
+
+# Topics
+
+## Topic 1 – Interface Design
+
+- 🟢 **Novices:** Was yesterday's session easy to get started? Were any commands confusing?  
+- 🟡 **Other tools:** How did odin compare to the tools you're used to?  
+- 🔵 **odin users:** How does odin2 differ from earlier versions? Are commands more intuitive now?
+
+## Topic 2 – Documentation & Learning Materials
+
+- 🟢 **Novices:** What formats (videos, cheat sheets, books) do you prefer?  
+- 🟡 **Other tools:** What resources helped you most? What was hard to find? Something that exists elsewhere we should implement?  
+- 🔵 **odin users:** What helped you most learning about odin? Do you like the odin-monty book? What’s still missing?
+
+##  Topic 3 – Work Practice
+
+- 🟢 **Novices:** What kind of problems would you want to use odin-monty for in future? any task you find repetitive and could automate?  
+- 🟡 **Other tools:** What steps in your current workflow could odin-monty support or replace? what steps it cannot replace? 
+- 🔵 **odin users:** Which parts of the odin-monty pipeline do you repeatedly use? What slows you down?
+
+## Topic 4 – Community & Ecosystem
+
+- 🟢 **Novices:** Would you find a community helpful? What format (forum, chat, office hours)?  
+- 🟡 **Other tools:** What kind of community features do other tools offer that you value?  
+- 🔵 **odin users:** How have you engaged with the odin community before? What could enhance collaboration?
+
+## Key Points & Wrap-up 
+
+- Each group shares 1 thing they liked and 1 suggestion for improvement for each topic.
+- Your feedback helps shape the future of odin—thank you! 🌈

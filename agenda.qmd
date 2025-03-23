@@ -60,15 +60,14 @@ Workshop dinner at [The Broadcaster](https://www.thebroadcaster.co.uk/) (Limited
 Coffee & networking
 
 **09:30 - 10:45**
-Feedback in small groups - Chair [Thomas Rawson](https://profiles.imperial.ac.uk/t.rawson)
+Feedback in small groups - Chair [Thomas Rawson](https://profiles.imperial.ac.uk/t.rawson) -- ([Slides](feedback.qmd))
 
 - Participants discuss specific challenges using `odin`/`monty`
 - Guided feedback on:
   - Interface design
-  - Development priorities
   - Documentation priorities
   - Work practice
-  - Speeding up model development
+  - Community development
 
 **10:45 - 11:15**
 Coffee Break

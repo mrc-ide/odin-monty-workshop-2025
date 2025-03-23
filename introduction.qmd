@@ -15,13 +15,13 @@ execute:
 
 # Safety first
 
-## In case of fire
+## 🔥🔥🔥 In case of fire 🔥🔥🔥
 
 ::: {style="text-align:center"}
 ![](images/Evacuation.png){width=90%}
 :::
 
-## WIFI
+## 🛜 WIFI
 
 - EDUROAM
 - for non-Academic participants
@@ -37,7 +37,7 @@ execute:
 
 # A brief history of odin
 
-## "Classic" odin - the beginnings (2016-2019)
+## 🏺 "Classic" odin - the beginnings (2016-2019)
 
 - **`odin`** created to integrate ODEs (e.g. for compartmental models) in R with a domain-specific language (DSL)
 - Limited support for difference (discrete-time) equations
@@ -45,13 +45,13 @@ execute:
 - Used at Imperial for malaria, HIV, ebola and other diseases
 - No support for inference
 
-## COVID-19 response (2020-2022)
+## 😷 COVID-19 response (2020-2022)
 
 ::: {style="text-align:center"}
 ![(Knock et al 2021, Science Translational Medicine)](images/knock.jpeg){width=60%}
 :::
 
-## COVID-19 response (2020-2022)
+## 😷 COVID-19 response (2020-2022)
 
 - **`mcstate`** for statistical machinery (particle filter, pMCMC)
 - **`dust`** for efficient parallel simulation
@@ -83,13 +83,13 @@ execute:
 - We want to understand how people are using these tools
 - What have you built, what do you want to build?
 
-## For us to know
+## 🙌 For us to know
 
 Who identifies as
 
-1. Novices
-2. Other tool users
-3. Some experience in odin/mcstate/monty
+1. 🟢 **Novices** (no prior tool experience)
+2. 🟡 **Users of other tools** (e.g. Stan, JAGS, BayesTools)
+3. 🔵 **odin/mcstate/monty users**
 
 ## Aim of the workshop
 
@@ -102,3 +102,10 @@ Who identifies as
 Day 1: Introducing the Tools and Applications
 
 Day 2: Feedback, Development, and Support
+
+📸 Group photo 1:40PM
+
+🥂 Reception 5:30PM
+
+🍽️ Workshop Dinner @ "The BroadCaster" 7PM
+
