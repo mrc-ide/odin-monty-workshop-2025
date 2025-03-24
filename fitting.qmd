@@ -93,6 +93,18 @@ r_output(model_compile_code("sir", "models/sir-compare.R"))
 sir <- odin("models/sir-compare.R")
 ```
 
+## Comparison with data
+
+```{r}
+sys <- dust_system_create(sir, pars = list(gamma = 0.2, beta = 0.5))
+dust_system_set_state_initial(sys)
+y <- dust_system_simulate(sys, data$time)
+y <- dust_unpack_state(sys, y)
+plot(data, col = "red", pch = 19, ylim = c(0, max(data$cases, y$incidence)))
+points(data$time, y$incidence, col = "blue", pch = 19)
+segments(data$time, data$cases, y1 = y$incidence)
+```
+
 ## Calculating likelihood: particle filtering {.smaller}
 
 ![](images/filter.gif)
