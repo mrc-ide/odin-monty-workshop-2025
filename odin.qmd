@@ -21,21 +21,37 @@ options(monty.progress = FALSE)
 
 # `odin`
 
-- A "domain specific language"
-- Originally designed for ordinary differential equations
-- Some very basic discrete time/stochastic support
+:::: {.columns}
 
-::: {.notes}
-Odin is a DSL - a domain specific language. It exists to describe a specific problem efficiently. We developed it to describe ordinary differential equations which evolve a system in continuous time. This is a great target for DSL because it's just a collection of mathematical truths - rates exist independent of any idea of order of operation.
-:::
-
-# `odin`
+::: {.column width="35%"}
+On your laptop:
 
 ```{r}
 library(odin2)
 library(dust2)
 library(monty)
 ```
+:::
+
+::: {.column width="65%"}
+In Posit Cloud:
+
+```{r, echo = FALSE}
+code <- qrcode::qr_code("https://posit.cloud/content/9998065")
+plot(code)
+```
+
+[`posit.cloud/content/9998065`](https://posit.cloud/content/9998065)
+:::
+
+::::
+
+## Thanks Ed!
+
+::: {style="text-align:center"}
+![](images/ed.jpg)
+:::
+
 
 ## ODE models
 
@@ -119,7 +135,7 @@ From the generator object `gen` we can construct a model (`mod`), here using no 
 
 :::: {.columns}
 
-::: {.column width="55%"}
+::: {.column width="50%"}
 
 ```{r}
 #| echo: false
@@ -129,7 +145,7 @@ r_output(readLines("models/sir-basic.R"))
 
 :::
 
-::: {.column width="45%"}
+::: {.column width="50%"}
 \begin{gather*}
 S(t + \Delta t) = S(t) - n_{SI}\\
 I(t + \Delta t) = I(t) + n_{SI} - n_{IR}\\

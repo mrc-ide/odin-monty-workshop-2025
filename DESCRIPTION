@@ -20,6 +20,7 @@ Imports:
     pkgbuild,
     pkgload,
     posterior,
+    qrcode,
     quarto,
     rmarkdown,
     roxygen2,

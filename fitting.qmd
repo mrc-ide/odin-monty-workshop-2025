@@ -20,11 +20,30 @@ options(monty.progress = FALSE)
 ```
 # A pragmatic introduction
 
+:::: {.columns}
+
+::: {.column width="35%"}
+On your laptop:
+
 ```{r}
 library(odin2)
 library(dust2)
 library(monty)
 ```
+:::
+
+::: {.column width="65%"}
+In Posit Cloud:
+
+```{r, echo = FALSE}
+code <- qrcode::qr_code("https://posit.cloud/content/9998065")
+plot(code)
+```
+
+[`posit.cloud/content/9998065`](https://posit.cloud/content/9998065)
+:::
+
+::::
 
 ## Previously, on "Introduction to odin"
 
