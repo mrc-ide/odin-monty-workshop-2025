@@ -196,7 +196,7 @@ samples_hmc <- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))
 # par(mar = c(3, 3, 1, 1))
 # plot(samples_hmc$pars[1,,1], type = "l", main = "HMC")
 ```
-[](images/hmc_run.png)
+![](images/hmc_run.png)
 </div>
 :::
 
