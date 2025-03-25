@@ -73,7 +73,6 @@ sir <- odin({
 
 
 ## Running a single simulation
-
 sys <- dust_system_create(sir, pars = list(), dt = 0.25)
 dust_system_set_state_initial(sys)
 t <- seq(0, 100)
