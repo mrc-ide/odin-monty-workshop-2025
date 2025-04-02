@@ -21,7 +21,7 @@ Coffee Break
 **11:30 - 12:45**
 Case studies
 
-- Chemical Kinetics Modelling - [Leonie Lorenz](https://www.ebi.ac.uk/people/person/leonie-lorenz/) ([EMBL-EBI](https://www.ebi.ac.uk/research/lees/))
+- Chemical Kinetics Modelling - ([Slides](slides/LeonieLorenz.pdf)) - [Leonie Lorenz](https://www.ebi.ac.uk/people/person/leonie-lorenz/) ([EMBL-EBI](https://www.ebi.ac.uk/research/lees/))
 - Covid 19 pandemic in French Polynesia – [Lloyd Chapman](https://www.lancaster.ac.uk/maths/people/lloyd-chapman) ([Lancaster](https://www.lancaster.ac.uk/maths/))
 - Modelling mpox - [Ed Knock](https://profiles.imperial.ac.uk/e.knock) ([Imperial](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/))
 
