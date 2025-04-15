@@ -2,7 +2,7 @@
 
 | Name                      | Institution         | Title |
 |---------------------------|--------------------|---------------------------------------------------------------|
-| Angélica Mata             | Fiocruz | A mechanistic understanding of yellow fever outbreak potential under seasonal variation |
+| Angélica Mata             | Fiocruz | [A mechanistic understanding of yellow fever outbreak potential under seasonal variation](slides/Lightning Talk - Fiocruz presentation.pdf) |
 | [Lin Wang](https://www.gen.cam.ac.uk/directory/lin-wang)                 | University of Cambridge | Antigenic mapping of influenza A virus with highly accurate serology titer prediction using pathogen genomics and deep learning |
 | [Lars Jakob Andreas Jonnerby](https://www.linkedin.com/in/jakob-jonnerby/?originalSubdomain=uk) | Imperial College London | Inferring influenza transmission dynamics from population immunity levels |
 | [Ryan Imrie](https://www.linkedin.com/in/ryanmimrie/?originalSubdomain=uk)                | University of Glasgow | Post-pandemic changes in population immunity have reduced the likelihood of emergence of zoonotic coronaviruses |
