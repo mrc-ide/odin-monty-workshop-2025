@@ -9,6 +9,6 @@
 | [Carl Andrew Pearson](https://github.com/pearsonca)       | University of North Carolina | [flepiMoP & paramix: Prospects for Modularization of and within Odin/Monty](slides/flepiMoP & paramix_ Prospects for Modularization of and within Odin_Monty.pdf) |
 | [Julia Mayer](https://globalhealth.charite.de/en/metas/person/person/address_detail/julia_stephanie_mayer)               | Charité – Universitätsmedizin Berlin | [Optimal immunisation strategies against RSV in children](slides/Lighting talk - J Mayer.pdf) |
 | [Juan Vesga](https://www.linkedin.com/in/juan-vesga-96182834/?originalSubdomain=uk)                | UK Health Security Agency | The transmission dynamics of Norovirus in England: a genotype-specific modelling study |
-| [Thomas E Rawson](https://profiles.imperial.ac.uk/t.rawson)           | Imperial College London | Modelling H5N1 Influenza in US Dairy Cows |
+| [Thomas E Rawson](https://profiles.imperial.ac.uk/t.rawson)           | Imperial College London | [Modelling H5N1 Influenza in US Dairy Cows](slides/H5N1_Odin_Lightning_Talk.pdf) |
 
 
