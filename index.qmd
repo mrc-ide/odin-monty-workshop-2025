@@ -10,9 +10,17 @@ source("common.R")
 
 ![](images/HPRU MRC Imperial joint.png){width=100%}
 
-## Overview {.unnumbered}
+> The odin-monty workshop took place on **24–25 March 2025** at Imperial College London's White City campus.
+>
+> The two-day Odin-Monty Workshop brought together 75 participants from across academia, public health agencies, and international institutions to build capacity and community around the **odin**, **dust**, and **monty** packages. The programme included hands-on sessions, invited case studies, a drop-in technical clinic, and a lightning talk session open to online attendees—where 23 joined virtually, including one speaker from Brazil.
+>
+> Travel grants were offered to support a more diverse and inclusive group of attendees. Participants represented at least 11 countries and over 18 institutions including universities (Imperial, LSHTM, Cambridge, Oxford, Glasgow, Galway, Charité, Umeå), public health bodies (UKHSA, WHO, RIVM), and international research centres (Pasteur, EBI, Barcelona Supercomputing Centre). This diversity significantly enriched the discussions and perspectives shared. 
+> 
+> To support continued learning, a public online book was launched detailing the use of odin-monty for modelling and inference:
+> 
+> 📖 [Online odin-monty book](https://mrc-ide.github.io/odin-monty/)
 
-The **Odin-Monty Workshop** is a collaborative event designed to showcase the second generation of odin-monty tools and bring together modellers from diverse fields, as well as those working at the interface between modelling and other disciplines. Participants will explore new features, see real-world use cases, and gain insights from others working in similar domains.
+![](images/photo_odin_monty_group.jpeg){width=100%}
 
 ## Workshop Aims {.unnumbered}
 
