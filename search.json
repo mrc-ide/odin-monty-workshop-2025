@@ -1,0 +1,863 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Dates: 24–25 March 2025\nLocation: School of Public Health, White City campus, Imperial College London\n\n\n\nThe odin-monty workshop took place on 24–25 March 2025 at Imperial College London’s White City campus.\nThe two-day Odin-Monty Workshop brought together 75 participants from across academia, public health agencies, and international institutions to build capacity and community around the odin, dust, and monty packages. The programme included hands-on sessions, invited case studies, a drop-in technical clinic, and a lightning talk session open to online attendees—where 23 joined virtually, including one speaker from Brazil.\nTravel grants were offered to support a more diverse and inclusive group of attendees. Participants represented at least 11 countries and over 18 institutions including universities (Imperial, LSHTM, Cambridge, Oxford, Glasgow, Galway, Charité, Umeå), public health bodies (UKHSA, WHO, RIVM), and international research centres (Pasteur, EBI, Barcelona Supercomputing Centre). This diversity significantly enriched the discussions and perspectives shared.\nTo support continued learning, a public online book was launched detailing the use of odin-monty for modelling and inference:\n📖 Online odin-monty book"
+  },
+  {
+    "objectID": "index.html#event-details",
+    "href": "index.html#event-details",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Dates: 24–25 March 2025\nLocation: School of Public Health, White City campus, Imperial College London\n\n\n\nThe odin-monty workshop took place on 24–25 March 2025 at Imperial College London’s White City campus.\nThe two-day Odin-Monty Workshop brought together 75 participants from across academia, public health agencies, and international institutions to build capacity and community around the odin, dust, and monty packages. The programme included hands-on sessions, invited case studies, a drop-in technical clinic, and a lightning talk session open to online attendees—where 23 joined virtually, including one speaker from Brazil.\nTravel grants were offered to support a more diverse and inclusive group of attendees. Participants represented at least 11 countries and over 18 institutions including universities (Imperial, LSHTM, Cambridge, Oxford, Glasgow, Galway, Charité, Umeå), public health bodies (UKHSA, WHO, RIVM), and international research centres (Pasteur, EBI, Barcelona Supercomputing Centre). This diversity significantly enriched the discussions and perspectives shared.\nTo support continued learning, a public online book was launched detailing the use of odin-monty for modelling and inference:\n📖 Online odin-monty book"
+  },
+  {
+    "objectID": "index.html#workshop-aims",
+    "href": "index.html#workshop-aims",
+    "title": "Odin-Monty Workshop",
+    "section": "Workshop Aims",
+    "text": "Workshop Aims\n\nIntroducing the updated odin-monty toolkit\nBuilding a community and fostering collaboration\nCollecting feedback to guide further refinement\n\nBy actively involving attendees, the odin-monty team aims to ensure these tools evolve in step with community needs and emerging trends."
+  },
+  {
+    "objectID": "index.html#lightning-talks",
+    "href": "index.html#lightning-talks",
+    "title": "Odin-Monty Workshop",
+    "section": "Lightning Talks",
+    "text": "Lightning Talks\nOn 24 March 2025 (15:30–16:30 UK time), we will host an online/hybrid session, “Lightning talks – odin applications in practice.” You can register for this session if you are unable to travel to London or if you are primarily interested in the talks."
+  },
+  {
+    "objectID": "index.html#slide-decks",
+    "href": "index.html#slide-decks",
+    "title": "Odin-Monty Workshop",
+    "section": "Slide decks",
+    "text": "Slide decks\nIn the interactive sessions, we will work through two slide decks:\n\nMonday AM: writing odin code\nMonday PM: fitting odin models to data\n\nSlide decks from talks will be added to the agenda for future reference."
+  },
+  {
+    "objectID": "index.html#installation-instructions",
+    "href": "index.html#installation-instructions",
+    "title": "Odin-Monty Workshop",
+    "section": "Installation instructions",
+    "text": "Installation instructions\nWe strongly recommend version 4.4.x of R; older versions may work (and in particular 4.3.x is known to work).\nFor the interactive session, you will need recent versions of odin2, monty and dust2, which you can install from our R-universe:\ninstall.packages(\n  c(\"monty\", \"dust2\", \"odin2\"),\n  repos = c(\"https://mrc-ide.r-universe.dev\", \"https://cloud.r-project.org\"))\nYou will also need a working C++ toolchain; you can test if you have one by running\n\npkgbuild::has_build_tools(debug = TRUE)\n#&gt; Trying to compile a simple C file\n#&gt; Running /opt/R/4.5.0/lib/R/bin/R CMD SHLIB foo.c\n#&gt; using C compiler: ‘gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0’\n#&gt; gcc -std=gnu2x -I\"/opt/R/4.5.0/lib/R/include\" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c foo.c -o foo.o\n#&gt; gcc -std=gnu2x -shared -L/opt/R/4.5.0/lib/R/lib -L/usr/local/lib -o foo.so foo.o -L/opt/R/4.5.0/lib/R/lib -lR\n#&gt; \n#&gt; [1] TRUE\n\nIf this fails, you should follow instructions for your platform:\n\nWindows: Install “RTools”, for 4.4.x of R see these instructions\nmacOS: Install the XCode command line tools following these instructions\nLinux: This varies by distribution, and most users will likely have everything they need if they can install any packages.\n\n\nResources\nAll files can be found on the resources page. Slides are linked above and from the agenda\n\n\nRegistration Deadline\nRegistration is closed at the moment"
+  },
+  {
+    "objectID": "fitting.html#previously-on-introduction-to-odin",
+    "href": "fitting.html#previously-on-introduction-to-odin",
+    "title": "Fitting odin models with monty",
+    "section": "Previously, on “Introduction to odin”",
+    "text": "Previously, on “Introduction to odin”\n\nWe created some simple compartmental models\nWe ran these and observed trajectories over time\nWe saw that stochastic models produce a family of trajectories"
+  },
+  {
+    "objectID": "fitting.html#the-data",
+    "href": "fitting.html#the-data",
+    "title": "Fitting odin models with monty",
+    "section": "The data",
+    "text": "The data\nWe have some data on the daily incidence of cases\n\ndata &lt;- read.csv(\"data/incidence.csv\")\nhead(data)\n#&gt;   time cases\n#&gt; 1    1    12\n#&gt; 2    2    23\n#&gt; 3    3    25\n#&gt; 4    4    36\n#&gt; 5    5    30\n#&gt; 6    6    57"
+  },
+  {
+    "objectID": "fitting.html#the-data-1",
+    "href": "fitting.html#the-data-1",
+    "title": "Fitting odin models with monty",
+    "section": "The data",
+    "text": "The data\n\nplot(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#our-model",
+    "href": "fitting.html#our-model",
+    "title": "Fitting odin models with monty",
+    "section": "Our model",
+    "text": "Our model\nLet’s fit these data to a model\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  update(incidence) &lt;- incidence + n_SI\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n})\nWe will link cases in the data to incidence in the model, and we will treat beta and gamma as unknown parameters to be estimated"
+  },
+  {
+    "objectID": "fitting.html#adding-likelihood-to-the-model",
+    "href": "fitting.html#adding-likelihood-to-the-model",
+    "title": "Fitting odin models with monty",
+    "section": "Adding likelihood to the model",
+    "text": "Adding likelihood to the model\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  update(incidence) &lt;- incidence + n_SI\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n  \n  cases &lt;- data()\n  cases ~ Poisson(incidence)\n})"
+  },
+  {
+    "objectID": "fitting.html#calculating-likelihood-particle-filtering",
+    "href": "fitting.html#calculating-likelihood-particle-filtering",
+    "title": "Fitting odin models with monty",
+    "section": "Calculating likelihood: particle filtering",
+    "text": "Calculating likelihood: particle filtering"
+  },
+  {
+    "objectID": "fitting.html#calculating-likelihood",
+    "href": "fitting.html#calculating-likelihood",
+    "title": "Fitting odin models with monty",
+    "section": "Calculating likelihood",
+    "text": "Calculating likelihood\n\nfilter &lt;- dust_filter_create(sir, data = data, time_start = 0,\n                             n_particles = 200, dt = 0.25)\ndust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2))\n#&gt; [1] -92.89566\n\n\nThe system runs stochastically, and the likelihood is different each time:\n\ndust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2))\n#&gt; [1] -93.37538\ndust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2))\n#&gt; [1] -88.08544"
+  },
+  {
+    "objectID": "fitting.html#filtered-trajectories",
+    "href": "fitting.html#filtered-trajectories",
+    "title": "Fitting odin models with monty",
+    "section": "Filtered trajectories",
+    "text": "Filtered trajectories\n\ndust_likelihood_run(filter, list(beta = 0.4, gamma = 0.2),\n                    save_trajectories = TRUE)\n#&gt; [1] -87.92554\ny &lt;- dust_likelihood_last_trajectories(filter)\ny &lt;- dust_unpack_state(filter, y)\nmatplot(data$time, t(y$incidence), type = \"l\", col = \"#00000044\", lty = 1,\n        xlab = \"Time\", ylab = \"Incidence\")\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#parameters",
+    "href": "fitting.html#parameters",
+    "title": "Fitting odin models with monty",
+    "section": "“Parameters”",
+    "text": "“Parameters”\n\nOur filter takes a list of beta and gamma, pars\n\nit could take all sorts of other things, not all of which are to be estimated\nsome of the inputs might be vectors or matrices\n\nOur MCMC takes an unstructured vector \\(\\theta\\)\n\nwe propose a new \\(\\theta^*\\) via some kernel, say a multivariate normal requiring a matrix of parameters corresponding to \\(\\theta\\)\nwe need a prior over \\(\\theta\\), but not necessarily every element of pars\n\nSmoothing this over is a massive nuisance\n\nsome way of mapping from \\(\\theta\\) to pars (and back again)"
+  },
+  {
+    "objectID": "fitting.html#parameter-packers",
+    "href": "fitting.html#parameter-packers",
+    "title": "Fitting odin models with monty",
+    "section": "Parameter packers",
+    "text": "Parameter packers\nOur solution, “packers”\n\npacker &lt;- monty_packer(c(\"beta\", \"gamma\"))\npacker\n#&gt; \n#&gt; ── &lt;monty_packer&gt; ──────────────────────────────────────────────────────────────\n#&gt; ℹ Packing 2 parameters: 'beta' and 'gamma'\n#&gt; ℹ Use '$pack()' to convert from a list to a vector\n#&gt; ℹ Use '$unpack()' to convert from a vector to a list\n#&gt; ℹ See `?monty_packer()` for more information\n\n\nWe can transform from \\(\\theta\\) to a named list:\n\npacker$unpack(c(0.2, 0.1))\n#&gt; $beta\n#&gt; [1] 0.2\n#&gt; \n#&gt; $gamma\n#&gt; [1] 0.1\n\n\n\nand back the other way:\n\npacker$pack(c(beta = 0.2, gamma = 0.1))\n#&gt; [1] 0.2 0.1"
+  },
+  {
+    "objectID": "fitting.html#parameter-packers-1",
+    "href": "fitting.html#parameter-packers-1",
+    "title": "Fitting odin models with monty",
+    "section": "Parameter packers",
+    "text": "Parameter packers\nBind additional data\n\npacker &lt;- monty_packer(c(\"beta\", \"gamma\"), fixed = list(I0 = 5))\npacker$unpack(c(0.2, 0.1))\n#&gt; $beta\n#&gt; [1] 0.2\n#&gt; \n#&gt; $gamma\n#&gt; [1] 0.1\n#&gt; \n#&gt; $I0\n#&gt; [1] 5"
+  },
+  {
+    "objectID": "fitting.html#parameter-packers-2",
+    "href": "fitting.html#parameter-packers-2",
+    "title": "Fitting odin models with monty",
+    "section": "Parameter packers",
+    "text": "Parameter packers\nCope with vector-valued parameters in \\(\\theta\\)\n\npacker &lt;- monty_packer(array = c(beta = 3, gamma = 3))\npacker\n#&gt; \n#&gt; ── &lt;monty_packer&gt; ──────────────────────────────────────────────────────────────\n#&gt; ℹ Packing 6 parameters: 'beta[1]', 'beta[2]', 'beta[3]', 'gamma[1]', 'gamma[2]', and 'gamma[3]'\n#&gt; ℹ Use '$pack()' to convert from a list to a vector\n#&gt; ℹ Use '$unpack()' to convert from a vector to a list\n#&gt; ℹ See `?monty_packer()` for more information\npacker$unpack(c(0.2, 0.21, 0.22, 0.1, 0.11, 0.12))\n#&gt; $beta\n#&gt; [1] 0.20 0.21 0.22\n#&gt; \n#&gt; $gamma\n#&gt; [1] 0.10 0.11 0.12"
+  },
+  {
+    "objectID": "fitting.html#priors",
+    "href": "fitting.html#priors",
+    "title": "Fitting odin models with monty",
+    "section": "Priors",
+    "text": "Priors\nAnother DSL, similar to odin’s:\n\nprior &lt;- monty_dsl({\n  beta ~ Exponential(mean = 0.5)\n  gamma ~ Exponential(mean = 0.3)\n})\n\n\nThis is a “monty model”\n\nprior\n#&gt; \n#&gt; ── &lt;monty_model&gt; ───────────────────────────────────────────────────────────────\n#&gt; ℹ Model has 2 parameters: 'beta' and 'gamma'\n#&gt; ℹ This model:\n#&gt; • can compute gradients\n#&gt; • can be directly sampled from\n#&gt; • accepts multiple parameters\n#&gt; ℹ See `?monty_model()` for more information\nmonty_model_density(prior, c(0.2, 0.1))\n#&gt; [1] 1.163787\n\n\n\ncompute this density manually:\n\ndexp(0.2, 1 / 0.5, log = TRUE) + dexp(0.1, 1 / 0.3, log = TRUE)\n#&gt; [1] 1.163787"
+  },
+  {
+    "objectID": "fitting.html#from-a-dust-filter-to-a-monty-model",
+    "href": "fitting.html#from-a-dust-filter-to-a-monty-model",
+    "title": "Fitting odin models with monty",
+    "section": "From a dust filter to a monty model",
+    "text": "From a dust filter to a monty model\n\nfilter\n#&gt; \n#&gt; ── &lt;dust_likelihood (odin_system)&gt; ─────────────────────────────────────────────\n#&gt; ℹ 4 state x 200 particles\n#&gt; ℹ The likelihood is stochastic\n#&gt; ℹ This system runs in discrete time with dt = 0.25\n#&gt; ℹ Use coef() (`?stats::coef()`) to get more information on parameters\n\n\nCombine a filter and a packer\n\npacker &lt;- monty_packer(c(\"beta\", \"gamma\"))\nlikelihood &lt;- dust_likelihood_monty(filter, packer)\nlikelihood\n#&gt; \n#&gt; ── &lt;monty_model&gt; ───────────────────────────────────────────────────────────────\n#&gt; ℹ Model has 2 parameters: 'beta' and 'gamma'\n#&gt; ℹ This model:\n#&gt; • is stochastic\n#&gt; ℹ See `?monty_model()` for more information"
+  },
+  {
+    "objectID": "fitting.html#posterior-from-likelihood-and-prior",
+    "href": "fitting.html#posterior-from-likelihood-and-prior",
+    "title": "Fitting odin models with monty",
+    "section": "Posterior from likelihood and prior",
+    "text": "Posterior from likelihood and prior\nCombine a likelihood and a prior to make a posterior\n\\[\n\\underbrace{\\Pr(\\theta | \\mathrm{data})}_{\\mathrm{posterior}} \\propto \\underbrace{\\Pr(\\mathrm{data} | \\theta)}_\\mathrm{likelihood} \\times \\underbrace{P(\\theta)}_{\\mathrm{prior}}\n\\]\n\n\nposterior &lt;- likelihood + prior\nposterior\n#&gt; \n#&gt; ── &lt;monty_model&gt; ───────────────────────────────────────────────────────────────\n#&gt; ℹ Model has 2 parameters: 'beta' and 'gamma'\n#&gt; ℹ This model:\n#&gt; • can be directly sampled from\n#&gt; • is stochastic\n#&gt; ℹ See `?monty_model()` for more information\n\n(remember that addition is multiplication on a log scale)"
+  },
+  {
+    "objectID": "fitting.html#create-a-sampler",
+    "href": "fitting.html#create-a-sampler",
+    "title": "Fitting odin models with monty",
+    "section": "Create a sampler",
+    "text": "Create a sampler\nA diagonal variance-covariance matrix (uncorrelated parameters)\n\nvcv &lt;- diag(2) * 0.2\nvcv\n#&gt;      [,1] [,2]\n#&gt; [1,]  0.2  0.0\n#&gt; [2,]  0.0  0.2\n\nUse this to create a “random walk” sampler:\n\nsampler &lt;- monty_sampler_random_walk(vcv)\nsampler\n#&gt; \n#&gt; ── &lt;monty_sampler: Random walk (monty_random_walk)&gt; ────────────────────────────\n#&gt; ℹ Use `?monty_sample()` to use this sampler\n#&gt; ℹ See `?monty_random_walk()` for more information"
+  },
+  {
+    "objectID": "fitting.html#lets-sample",
+    "href": "fitting.html#lets-sample",
+    "title": "Fitting odin models with monty",
+    "section": "Let’s sample!",
+    "text": "Let’s sample!\n\nsamples &lt;- monty_sample(posterior, sampler, 1000, n_chains = 3)\nsamples\n#&gt; \n#&gt; ── &lt;monty_samples: 2 parameters x 1000 samples x 3 chains&gt; ─────────────────────\n#&gt; ℹ Parameters: 'beta' and 'gamma'\n#&gt; ℹ Conversion to other types is possible:\n#&gt; → ! posterior::as_draws_array() [package installed, but not loaded]\n#&gt; → ! posterior::as_draws_df() [package installed, but not loaded]\n#&gt; → ! coda::as.mcmc.list() [package installed, but not loaded]\n#&gt; ℹ See `?monty_sample()` and `vignette(\"samples\")` for more information"
+  },
+  {
+    "objectID": "fitting.html#the-result-diagnostics",
+    "href": "fitting.html#the-result-diagnostics",
+    "title": "Fitting odin models with monty",
+    "section": "The result: diagnostics",
+    "text": "The result: diagnostics\nDiagnostics can be used from the posterior package\n\n## Note: as_draws_df converts samples$pars, and drops anything else in samples\nsamples_df &lt;- posterior::as_draws_df(samples)\nposterior::summarise_draws(samples_df)\n#&gt; # A tibble: 2 × 10\n#&gt;   variable  mean median     sd    mad    q5   q95  rhat ess_bulk ess_tail\n#&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n#&gt; 1 beta     0.873  0.855 0.132  0.112  0.701 1.10   1.07     67.4     64.9\n#&gt; 2 gamma    0.553  0.547 0.0967 0.0933 0.442 0.720  1.11     67.9     81.9"
+  },
+  {
+    "objectID": "fitting.html#the-results-parameters",
+    "href": "fitting.html#the-results-parameters",
+    "title": "Fitting odin models with monty",
+    "section": "The results: parameters",
+    "text": "The results: parameters\nYou can use the posterior package in conjunction with bayesplot (and then also ggplot2)\n\nbayesplot::mcmc_scatter(samples_df)"
+  },
+  {
+    "objectID": "fitting.html#the-result-traceplots",
+    "href": "fitting.html#the-result-traceplots",
+    "title": "Fitting odin models with monty",
+    "section": "The result: traceplots",
+    "text": "The result: traceplots\n\nbayesplot::mcmc_trace(samples_df)"
+  },
+  {
+    "objectID": "fitting.html#the-result-density-over-time",
+    "href": "fitting.html#the-result-density-over-time",
+    "title": "Fitting odin models with monty",
+    "section": "The result: density over time",
+    "text": "The result: density over time\n\nmatplot(drop(samples$density), type = \"l\", lty = 1)"
+  },
+  {
+    "objectID": "fitting.html#the-result-density-over-time-1",
+    "href": "fitting.html#the-result-density-over-time-1",
+    "title": "Fitting odin models with monty",
+    "section": "The result: density over time",
+    "text": "The result: density over time\n\nmatplot(drop(samples$density[-(1:100), ]), type = \"l\", lty = 1)"
+  },
+  {
+    "objectID": "fitting.html#better-mixing",
+    "href": "fitting.html#better-mixing",
+    "title": "Fitting odin models with monty",
+    "section": "Better mixing",
+    "text": "Better mixing\n\nvcv &lt;- matrix(c(0.01, 0.005, 0.005, 0.005), 2, 2)\nsampler &lt;- monty_sampler_random_walk(vcv)\nsamples &lt;- monty_sample(posterior, sampler, 2000, initial = samples,\n                        n_chains = 4)\nmatplot(samples$density, type = \"l\", lty = 1)"
+  },
+  {
+    "objectID": "fitting.html#better-mixing-the-results",
+    "href": "fitting.html#better-mixing-the-results",
+    "title": "Fitting odin models with monty",
+    "section": "Better mixing: the results",
+    "text": "Better mixing: the results\n\nsamples_df &lt;- posterior::as_draws_df(samples)\nposterior::summarise_draws(samples_df)\n#&gt; # A tibble: 2 × 10\n#&gt;   variable  mean median     sd    mad    q5   q95  rhat ess_bulk ess_tail\n#&gt;   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n#&gt; 1 beta     0.843  0.830 0.121  0.113  0.664 1.07   1.01     458.     556.\n#&gt; 2 gamma    0.529  0.516 0.0953 0.0852 0.393 0.711  1.01     431.     579."
+  },
+  {
+    "objectID": "fitting.html#better-mixing-the-results-1",
+    "href": "fitting.html#better-mixing-the-results-1",
+    "title": "Fitting odin models with monty",
+    "section": "Better mixing: the results",
+    "text": "Better mixing: the results\n\nbayesplot::mcmc_scatter(samples_df)"
+  },
+  {
+    "objectID": "fitting.html#better-mixing-the-results-2",
+    "href": "fitting.html#better-mixing-the-results-2",
+    "title": "Fitting odin models with monty",
+    "section": "Better mixing: the results",
+    "text": "Better mixing: the results\n\nbayesplot::mcmc_trace(samples_df)"
+  },
+  {
+    "objectID": "fitting.html#configure-the-filter",
+    "href": "fitting.html#configure-the-filter",
+    "title": "Fitting odin models with monty",
+    "section": "Configure the filter",
+    "text": "Configure the filter\nUse the n_threads argument, here for 4 threads\n\nfilter &lt;- dust_filter_create(sir, data = data, time_start = 0,\n                             n_particles = 200, dt = 0.25, n_threads = 4)\n\nrequires that you have OpenMP; this is very annoying on macOS"
+  },
+  {
+    "objectID": "fitting.html#configure-a-parallel-runner",
+    "href": "fitting.html#configure-a-parallel-runner",
+    "title": "Fitting odin models with monty",
+    "section": "Configure a parallel runner",
+    "text": "Configure a parallel runner\nUse monty_runner_callr, here for 2 workers\n\nrunner &lt;- monty_runner_callr(2)\n\nPass runner through to monty_sample:\n\nsamples &lt;- monty_sample(posterior, sampler, 1000,\n                        runner = runner, n_chains = 4)"
+  },
+  {
+    "objectID": "fitting.html#run-chains-on-different-cluster-nodes",
+    "href": "fitting.html#run-chains-on-different-cluster-nodes",
+    "title": "Fitting odin models with monty",
+    "section": "Run chains on different cluster nodes",
+    "text": "Run chains on different cluster nodes\nmonty_sample_manual_prepare(posterior, sampler, 10000, \"mypath\",\n                            n_chains = 10)\nThen run these chains in parallel on your cluster:\nmonty_sample_manual_run(1, \"mypath\")\nmonty_sample_manual_run(2, \"mypath\")\nmonty_sample_manual_run(3, \"mypath\")\nAnd retrieve the result\nsamples &lt;- monty_sample_manual_collect(\"mypath\")"
+  },
+  {
+    "objectID": "fitting.html#saving-history",
+    "href": "fitting.html#saving-history",
+    "title": "Fitting odin models with monty",
+    "section": "Saving history",
+    "text": "Saving history\n\nSave your trajectories at every collected sample\nSave the final state at every sample (for onward simulation)\nSave snapshots at intermediate timepoints of the state at every sample (for counterfactuals)"
+  },
+  {
+    "objectID": "fitting.html#trajectories",
+    "href": "fitting.html#trajectories",
+    "title": "Fitting odin models with monty",
+    "section": "Trajectories",
+    "text": "Trajectories\n\nlikelihood &lt;- dust_likelihood_monty(filter, packer,\n                                    save_trajectories = TRUE)\nposterior &lt;- likelihood + prior\nsamples &lt;- monty_sample(posterior, sampler, 1000, n_chains = 4)"
+  },
+  {
+    "objectID": "fitting.html#trajectories-1",
+    "href": "fitting.html#trajectories-1",
+    "title": "Fitting odin models with monty",
+    "section": "Trajectories",
+    "text": "Trajectories\n\ntrajectories &lt;- dust_unpack_state(filter,\n                                  samples$observations$trajectories)\nmatplot(data$time, trajectories$incidence[, , 1], type = \"l\", lty = 1,\n        col = \"#00000044\", xlab = \"Time\", ylab = \"Infection incidence\")\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#trajectories-2",
+    "href": "fitting.html#trajectories-2",
+    "title": "Fitting odin models with monty",
+    "section": "Trajectories",
+    "text": "Trajectories\nTrajectories are 4-dimensional\n\n# (4 states x 20 time points x 1000 samples x 4 chains)\ndim(samples$observations$trajectories)\n#&gt; [1]    4   20 1000    4\n\nThese can get very large quickly - there are two main ways to help reduce this:\n\nSaving only a subset of the states\nThinning"
+  },
+  {
+    "objectID": "fitting.html#saving-a-subset-of-trajectories",
+    "href": "fitting.html#saving-a-subset-of-trajectories",
+    "title": "Fitting odin models with monty",
+    "section": "Saving a subset of trajectories",
+    "text": "Saving a subset of trajectories\nYou can save a subset via specifying a named vector\n\nlikelihood &lt;- dust_likelihood_monty(filter, packer, \n                                    save_trajectories = c(\"I\", \"incidence\"))\nposterior &lt;- likelihood + prior\nsamples2 &lt;- monty_sample(posterior, sampler, 100, initial = samples)\ndim(samples2$observations$trajectories)\n#&gt; [1]   2  20 100   1"
+  },
+  {
+    "objectID": "fitting.html#thinning",
+    "href": "fitting.html#thinning",
+    "title": "Fitting odin models with monty",
+    "section": "Thinning",
+    "text": "Thinning\nWhile running\nsamples &lt;- monty_sample(...,\n                        burnin = 100,\n                        thinning_factor = 2)\nAfter running\n\nsamples &lt;- monty_samples_thin(samples,\n                              burnin = 500,\n                              thinning_factor = 2)\n\n\nThinning while running faster and uses less memory\nAfter running is more flexible (e.g. can plot full chains of parameters between running and thinning)"
+  },
+  {
+    "objectID": "fitting.html#deterministic-models-from-stochastic",
+    "href": "fitting.html#deterministic-models-from-stochastic",
+    "title": "Fitting odin models with monty",
+    "section": "Deterministic models from stochastic",
+    "text": "Deterministic models from stochastic\n\nStochastic models written in odin, can be run deterministically\nRuns by taking the expectation of any random draws\nThis gives two models for the price of one\nHowever it might not be suitable for all models"
+  },
+  {
+    "objectID": "fitting.html#fitting-in-deterministic-mode",
+    "href": "fitting.html#fitting-in-deterministic-mode",
+    "title": "Fitting odin models with monty",
+    "section": "Fitting in deterministic mode",
+    "text": "Fitting in deterministic mode\nThe key difference is to use dust_unfilter_create\n\nunfilter &lt;- dust_unfilter_create(sir, data = data, time_start = 0, dt = 0.25)\n\nNote as this is deterministic it produces the same likelihood every time\n\ndust_likelihood_run(unfilter, list(beta = 0.4, gamma = 0.2))\n#&gt; [1] -371.9752\ndust_likelihood_run(unfilter, list(beta = 0.4, gamma = 0.2))\n#&gt; [1] -371.9752"
+  },
+  {
+    "objectID": "fitting.html#fitting-in-deterministic-mode-1",
+    "href": "fitting.html#fitting-in-deterministic-mode-1",
+    "title": "Fitting odin models with monty",
+    "section": "Fitting in deterministic mode",
+    "text": "Fitting in deterministic mode\n\nlikelihood &lt;- dust_likelihood_monty(unfilter, packer, save_trajectories = TRUE)\nposterior &lt;- likelihood + prior\nsamples_det &lt;- monty_sample(posterior, sampler, 1000, n_chains = 4)\nsamples_det &lt;- monty_samples_thin(samples_det,\n                                  burnin = 500,\n                                  thinning_factor = 2)"
+  },
+  {
+    "objectID": "fitting.html#stochastic-v-deterministic-comparison",
+    "href": "fitting.html#stochastic-v-deterministic-comparison",
+    "title": "Fitting odin models with monty",
+    "section": "Stochastic v deterministic comparison",
+    "text": "Stochastic v deterministic comparison\n\ny &lt;- dust2::dust_unpack_state(filter, samples$observations$trajectories)\nincidence &lt;- array(y$incidence, c(20, 1000))\nmatplot(data$time, incidence, type = \"l\", lty = 1, col = \"#00000044\",\n        xlab = \"Time\", ylab = \"Infection incidence\", ylim = c(0, 75))\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#stochastic-v-deterministic-comparison-1",
+    "href": "fitting.html#stochastic-v-deterministic-comparison-1",
+    "title": "Fitting odin models with monty",
+    "section": "Stochastic v deterministic comparison",
+    "text": "Stochastic v deterministic comparison\n\ny &lt;- dust2::dust_unpack_state(filter, samples_det$observations$trajectories)\nincidence &lt;- array(y$incidence, c(20, 1000))\nmatplot(data$time, incidence, type = \"l\", lty = 1, col = \"#00000044\",\n        xlab = \"Time\", ylab = \"Infection incidence\", ylim = c(0, 75))\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#stochastic-v-deterministic-comparison-2",
+    "href": "fitting.html#stochastic-v-deterministic-comparison-2",
+    "title": "Fitting odin models with monty",
+    "section": "Stochastic v deterministic comparison",
+    "text": "Stochastic v deterministic comparison\n\npars_stochastic &lt;- array(samples$pars, c(2, 500))\npars_deterministic &lt;- array(samples_det$pars, c(2, 500))\nplot(pars_stochastic[1, ], pars_stochastic[2, ], ylab = \"gamma\", xlab = \"beta\",\n     pch = 19, col = \"blue\")\npoints(pars_deterministic[1, ], pars_deterministic[2, ], pch = 19, col = \"red\")\nlegend(\"bottomright\", c(\"stochastic fit\", \"deterministic fit\"), pch = c(19, 19), \n       col = c(\"blue\", \"red\"))"
+  },
+  {
+    "objectID": "fitting.html#projections-and-counterfactuals",
+    "href": "fitting.html#projections-and-counterfactuals",
+    "title": "Fitting odin models with monty",
+    "section": "Projections and counterfactuals",
+    "text": "Projections and counterfactuals\nLet’s use some new data\n\ndata &lt;- read.csv(\"data/schools.csv\")\nplot(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#projections-and-counterfactuals-1",
+    "href": "fitting.html#projections-and-counterfactuals-1",
+    "title": "Fitting odin models with monty",
+    "section": "Projections and counterfactuals",
+    "text": "Projections and counterfactuals\nWe’ll fit the data to an SIS model incorporating schools opening/closing\nsis &lt;- odin({\n  update(S) &lt;- S - n_SI + n_IS\n  update(I) &lt;- I + n_SI - n_IS\n  update(incidence) &lt;- incidence + n_SI\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  schools &lt;- interpolate(schools_time, schools_open, \"constant\")\n  schools_time &lt;- parameter()\n  schools_open &lt;- parameter()\n  dim(schools_time, schools_open) &lt;- parameter(rank = 1)\n  \n  beta &lt;- ((1 - schools) * (1 - schools_modifier) + schools) * beta0\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IS &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IS &lt;- Binomial(I, p_IS)\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta0 &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n  schools_modifier &lt;- parameter(0.6)\n  \n  cases &lt;- data()\n  cases ~ Poisson(incidence)\n})"
+  },
+  {
+    "objectID": "fitting.html#projections-and-counterfactuals-2",
+    "href": "fitting.html#projections-and-counterfactuals-2",
+    "title": "Fitting odin models with monty",
+    "section": "Projections and counterfactuals",
+    "text": "Projections and counterfactuals\n\nschools_time &lt;- c(0, 50, 60, 120, 130, 170, 180)\nschools_open &lt;- c(1,  0,  1,   0,   1,   0,   1)\n\nWe will\n\nproject forward from the end of the fits (day 150) to day 200\nrun a counterfactual where the schools did not reopen on day 60, reopening on day 130"
+  },
+  {
+    "objectID": "fitting.html#fitting-to-the-sis-model",
+    "href": "fitting.html#fitting-to-the-sis-model",
+    "title": "Fitting odin models with monty",
+    "section": "Fitting to the SIS model",
+    "text": "Fitting to the SIS model\n\npacker &lt;- monty_packer(c(\"beta0\", \"gamma\", \"schools_modifier\"),\n                       fixed = list(schools_time = schools_time,\n                                    schools_open = schools_open))\n\nfilter &lt;- dust_filter_create(sis, time_start = 0, dt = 1,\n                             data = data, n_particles = 200)\n\nprior &lt;- monty_dsl({\n  beta0 ~ Exponential(mean = 0.3)\n  gamma ~ Exponential(mean = 0.1)\n  schools_modifier ~ Uniform(0, 1)\n})\n\nvcv &lt;- diag(c(2e-4, 2e-4, 4e-4))\nsampler &lt;- monty_sampler_random_walk(vcv)"
+  },
+  {
+    "objectID": "fitting.html#fitting-to-the-sis-model-1",
+    "href": "fitting.html#fitting-to-the-sis-model-1",
+    "title": "Fitting odin models with monty",
+    "section": "Fitting to the SIS model",
+    "text": "Fitting to the SIS model\nWe want to save the end state, and a snapshot at day 60 (where the counterfactual will diverge)\n\nlikelihood &lt;- dust_likelihood_monty(filter, packer, save_trajectories = TRUE,\n                                    save_state = TRUE, save_snapshots = 60)\n\nposterior &lt;- likelihood + prior\n\nsamples &lt;- monty_sample(posterior, sampler, 500, initial = c(0.3, 0.1, 0.5),\n                        n_chains = 4)\nsamples &lt;- monty_samples_thin(samples, burnin = 100, thinning_factor = 8)"
+  },
+  {
+    "objectID": "fitting.html#fit-to-data",
+    "href": "fitting.html#fit-to-data",
+    "title": "Fitting odin models with monty",
+    "section": "Fit to data",
+    "text": "Fit to data\n\ny &lt;- dust_unpack_state(filter, samples$observations$trajectories)\nincidence &lt;- array(y$incidence, c(150, 200))\nmatplot(data$time, incidence, type = \"l\", col = \"#00000044\", lty = 1,\n        xlab = \"Time\", ylab = \"Incidence\")\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#running-projection-using-the-end-state",
+    "href": "fitting.html#running-projection-using-the-end-state",
+    "title": "Fitting odin models with monty",
+    "section": "Running projection using the end state",
+    "text": "Running projection using the end state\n\nstate &lt;- array(samples$observations$state, c(3, 200))\npars &lt;- array(samples$pars, c(3, 200))\npars &lt;- lapply(seq_len(200), function(i) packer$unpack(pars[, i]))\n\nsys &lt;- dust_system_create(sis, pars, n_groups = length(pars), dt = 1)\n\ndust_system_set_state(sys, state)\nt &lt;- seq(150, 200)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)"
+  },
+  {
+    "objectID": "fitting.html#running-projection-using-the-end-state-1",
+    "href": "fitting.html#running-projection-using-the-end-state-1",
+    "title": "Fitting odin models with monty",
+    "section": "Running projection using the end state",
+    "text": "Running projection using the end state\n\nmatplot(data$time, incidence, type = \"l\", col = \"#00000044\", lty = 1,\n        xlab = \"Time\", ylab = \"Incidence\", xlim = c(0, 200))\nmatlines(t, t(y$incidence), col = \"blue\")\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "fitting.html#running-counterfactual-using-the-snapshot",
+    "href": "fitting.html#running-counterfactual-using-the-snapshot",
+    "title": "Fitting odin models with monty",
+    "section": "Running counterfactual using the snapshot",
+    "text": "Running counterfactual using the snapshot\n\nsnapshot &lt;- array(samples$observations$snapshots, c(3, 200))\npars &lt;- array(samples$pars, c(3, 200))\nf &lt;- function(i) {\n  p &lt;- packer$unpack(pars[, i])\n  p$schools_time &lt;- c(0, 50, 130, 170, 180)\n  p$schools_open &lt;- c(1, 0, 1, 0, 1)\n  p\n}\npars &lt;- lapply(seq_len(200), f)\nsys &lt;- dust_system_create(sis, pars, n_groups = length(pars), dt = 1)\n\ndust_system_set_state(sys, snapshot)\nt &lt;- seq(60, 150)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)"
+  },
+  {
+    "objectID": "fitting.html#running-counterfactual-using-the-snapshot-1",
+    "href": "fitting.html#running-counterfactual-using-the-snapshot-1",
+    "title": "Fitting odin models with monty",
+    "section": "Running counterfactual using the snapshot",
+    "text": "Running counterfactual using the snapshot\n\nmatplot(data$time, incidence, type = \"l\", col = \"#00000044\", lty = 1,\n        xlab = \"Time\", ylab = \"Incidence\")\nmatlines(t, t(y$incidence), col = \"blue\")\npoints(data, pch = 19, col = \"red\")"
+  },
+  {
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "Agenda",
+    "section": "",
+    "text": "Dates: 24–25 March 2025\n\n\n09:00 - 09:30 Registration & Coffee\n09:30 - 09:45 Welcome and opening remarks – (Slides)\n09:45 – 11:15 Building a model with odin – (Slides)\n\nHands on basic introduction odin: building some simple epidemiological models from scratch\nA hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism\n\n11:15 - 11:30 Coffee Break\n11:30 - 12:45 Case studies\n\nChemical Kinetics Modelling - (Slides) - Leonie Lorenz (EMBL-EBI)\nCovid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)\nModelling mpox - Ed Knock (Imperial)\n\n12:45 - 13:45 Lunch Break\n13:45 - 15:00 Inference with monty – (Slides) – Chair Peter Winskill\n\nHands-on introduction to inference\nConnecting odin models to data, and infering parameters with MCMC\nCollect information on hidden models states while running models\nRunning counterfactuals and simulations\n\n15:00 - 15:30 Coffee Break\n15:30 - 16:45 Lightning talks\n\nApplications in practice (Hybrid)\nShort 2 minutes presentations from participants (online + in-person)\nOpen to additional registered online attendees\n\n17:00 - 18:30 Department reception (open to all)\n\nInformal networking, drinks, and snacks\n\n19:00 - Late Workshop dinner at The Broadcaster (Limited numbers)\n\n\n\n09:00 - 9:30 Coffee & networking\n09:30 - 10:45 Feedback in small groups - Chair Thomas Rawson – (Slides)\n\nParticipants discuss specific challenges using odin/monty\nGuided feedback on:\n\nInterface design\nDocumentation priorities\nWork practice\nCommunity development\n\n\n10:45 - 11:15 Coffee Break\n11:15 - 12:30 Future of the Tools – Chair Katy Gaythorpe – (Slides)\n\nPriorities and Roadmap - Rich FitzJohn\nNew and upcoming features:\n\nGPU/HPC integration - Rich FitzJohn\nGradient methods and autodiff - Marc Baguelin\nParallel tempering - Robert Verity\n\nSurvey “Out of 1-10” priorities with menti\nRoadmap and new features based on collected feedback\nOpen discussion\n\n12:30 - 14:00 Extended lunch Break and drop-in session from 13:00\n14:00 - 15:00 Teaching & Learning with wodin – Chair Pablo Perez Guzman\n\nHurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder\nEnhancing teaching with wodin: A web-based approach to modelling - (Slides) - Charlie Whittaker\nwodin for policy scenario - (Slides) - OJ Watson\nOpen discussion\n\n15:00 - 15:30 Closing remarks and thanks\n\nSummary of workshop outcomes\nNext steps and continued collaboration plans"
+  },
+  {
+    "objectID": "agenda.html#day-1-introducing-the-tools-and-applications",
+    "href": "agenda.html#day-1-introducing-the-tools-and-applications",
+    "title": "Agenda",
+    "section": "",
+    "text": "09:00 - 09:30 Registration & Coffee\n09:30 - 09:45 Welcome and opening remarks – (Slides)\n09:45 – 11:15 Building a model with odin – (Slides)\n\nHands on basic introduction odin: building some simple epidemiological models from scratch\nA hands-on session (via posit cloud or your own laptop) where we will build a model and add increasing realism\n\n11:15 - 11:30 Coffee Break\n11:30 - 12:45 Case studies\n\nChemical Kinetics Modelling - (Slides) - Leonie Lorenz (EMBL-EBI)\nCovid 19 pandemic in French Polynesia – Lloyd Chapman (Lancaster)\nModelling mpox - Ed Knock (Imperial)\n\n12:45 - 13:45 Lunch Break\n13:45 - 15:00 Inference with monty – (Slides) – Chair Peter Winskill\n\nHands-on introduction to inference\nConnecting odin models to data, and infering parameters with MCMC\nCollect information on hidden models states while running models\nRunning counterfactuals and simulations\n\n15:00 - 15:30 Coffee Break\n15:30 - 16:45 Lightning talks\n\nApplications in practice (Hybrid)\nShort 2 minutes presentations from participants (online + in-person)\nOpen to additional registered online attendees\n\n17:00 - 18:30 Department reception (open to all)\n\nInformal networking, drinks, and snacks\n\n19:00 - Late Workshop dinner at The Broadcaster (Limited numbers)"
+  },
+  {
+    "objectID": "agenda.html#day-2-feedback-development-and-support",
+    "href": "agenda.html#day-2-feedback-development-and-support",
+    "title": "Agenda",
+    "section": "",
+    "text": "09:00 - 9:30 Coffee & networking\n09:30 - 10:45 Feedback in small groups - Chair Thomas Rawson – (Slides)\n\nParticipants discuss specific challenges using odin/monty\nGuided feedback on:\n\nInterface design\nDocumentation priorities\nWork practice\nCommunity development\n\n\n10:45 - 11:15 Coffee Break\n11:15 - 12:30 Future of the Tools – Chair Katy Gaythorpe – (Slides)\n\nPriorities and Roadmap - Rich FitzJohn\nNew and upcoming features:\n\nGPU/HPC integration - Rich FitzJohn\nGradient methods and autodiff - Marc Baguelin\nParallel tempering - Robert Verity\n\nSurvey “Out of 1-10” priorities with menti\nRoadmap and new features based on collected feedback\nOpen discussion\n\n12:30 - 14:00 Extended lunch Break and drop-in session from 13:00\n14:00 - 15:00 Teaching & Learning with wodin – Chair Pablo Perez Guzman\n\nHurdles in learning & accessibility for teaching infectious disease modelling - Julia Halder\nEnhancing teaching with wodin: A web-based approach to modelling - (Slides) - Charlie Whittaker\nwodin for policy scenario - (Slides) - OJ Watson\nOpen discussion\n\n15:00 - 15:30 Closing remarks and thanks\n\nSummary of workshop outcomes\nNext steps and continued collaboration plans"
+  },
+  {
+    "objectID": "odin.html#thanks-ed",
+    "href": "odin.html#thanks-ed",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Thanks Ed!",
+    "text": "Thanks Ed!"
+  },
+  {
+    "objectID": "odin.html#ode-models",
+    "href": "odin.html#ode-models",
+    "title": "An introduction to odin2 and dust2",
+    "section": "ODE models",
+    "text": "ODE models\n\n\nderiv(S) &lt;- -beta * S * I / N\nderiv(I) &lt;- beta * S * I / N - gamma * I\nderiv(R) &lt;- gamma * I\n\ninitial(S) &lt;- N - I0\ninitial(I) &lt;- I0\ninitial(R) &lt;- 0\n\nN &lt;- parameter(1000)\nI0 &lt;- parameter(10)\nbeta &lt;- parameter(0.2)\ngamma &lt;- parameter(0.1)\n\n\\[\\begin{gather*}\n\\frac{dS}{dt} = -\\beta S \\frac{I}{N}\\\\\n\\frac{dI}{dt} = \\beta S \\frac{I}{N} - \\gamma I\\\\\n\\frac{dR}{dt} = \\gamma I\n\\end{gather*}\\]\n\n\nThings to note:\n\nout of order definition\nevery variable has initial and deriv pair"
+  },
+  {
+    "objectID": "odin.html#compiling-the-model-with-odin2",
+    "href": "odin.html#compiling-the-model-with-odin2",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Compiling the model with odin2",
+    "text": "Compiling the model with odin2\nsir_ode &lt;- odin({\n  deriv(S) &lt;- -beta * S * I / N\n  deriv(I) &lt;- beta * S * I / N - gamma * I\n  deriv(R) &lt;- gamma * I\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n})\n\nThe odin call generates C code, compiles it with gcc or clang to create a shared library, and loads that plus support code into R to create a generator object gen"
+  },
+  {
+    "objectID": "odin.html#running-the-model-with-dust2",
+    "href": "odin.html#running-the-model-with-dust2",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Running the model with dust2",
+    "text": "Running the model with dust2\n\nsys &lt;- dust_system_create(sir_ode, pars = list())\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\n\nThe output has dimensions number of states x number of timepoints\n\ndim(y)\n#&gt; [1]   3 101"
+  },
+  {
+    "objectID": "odin.html#unpacking-states",
+    "href": "odin.html#unpacking-states",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Unpacking states",
+    "text": "Unpacking states\nOutput can be nicely unpacked into the different states using dust_unpack_state\n\ny &lt;- dust_unpack_state(sys, y)\n\nplot(t, y$I, type = \"l\", xlab = \"Time\", ylab = \"I\")\n\n\n\nFrom the generator object gen we can construct a model (mod), here using no parameters – just using default parameters as defined above. We run over a set of times and output the value of the system at a number of intermediate times."
+  },
+  {
+    "objectID": "odin.html#stochastic-models",
+    "href": "odin.html#stochastic-models",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Stochastic models",
+    "text": "Stochastic models\n\n\nupdate(S) &lt;- S - n_SI\nupdate(I) &lt;- I + n_SI - n_IR\nupdate(R) &lt;- R + n_IR\n\ninitial(S) &lt;- N - I0\ninitial(I) &lt;- I0\ninitial(R) &lt;- 0\n\np_SI &lt;- 1 - exp(-beta * I / N * dt)\np_IR &lt;- 1 - exp(-gamma * dt)\nn_SI &lt;- Binomial(S, p_SI)\nn_IR &lt;- Binomial(I, p_IR)\n\nN &lt;- parameter(1000)\nI0 &lt;- parameter(10)\nbeta &lt;- parameter(0.2)\ngamma &lt;- parameter(0.1)\n\n\\[\\begin{gather*}\nS(t + \\Delta t) = S(t) - n_{SI}\\\\\nI(t + \\Delta t) = I(t) + n_{SI} - n_{IR}\\\\\nR(t + \\Delta t) = R(t) + n_{IR}\n\\end{gather*}\\]\n\n\n\ndt is a special parameter\nevery variable has initial and update pair"
+  },
+  {
+    "objectID": "odin.html#compared-with-ode-models",
+    "href": "odin.html#compared-with-ode-models",
+    "title": "An introduction to odin2 and dust2",
+    "section": "…compared with ODE models",
+    "text": "…compared with ODE models\n\n\nupdate(S) &lt;- S - n_SI\nupdate(I) &lt;- I + n_SI - n_IR\nupdate(R) &lt;- R + n_IR\n\ninitial(S) &lt;- N - I0\ninitial(I) &lt;- I0\ninitial(R) &lt;- 0\n\np_SI &lt;- 1 - exp(-beta * I / N * dt)\np_IR &lt;- 1 - exp(-gamma * dt)\nn_SI &lt;- Binomial(S, p_SI)\nn_IR &lt;- Binomial(I, p_IR)\n\nN &lt;- parameter(1000)\nI0 &lt;- parameter(10)\nbeta &lt;- parameter(0.2)\ngamma &lt;- parameter(0.1)\n\nderiv(S) &lt;- -beta * S * I / N\nderiv(I) &lt;- beta * S * I / N - gamma * I\nderiv(R) &lt;- gamma * I\n\ninitial(S) &lt;- N - I0\ninitial(I) &lt;- I0\ninitial(R) &lt;- 0\n\nN &lt;- parameter(1000)\nI0 &lt;- parameter(10)\nbeta &lt;- parameter(0.2)\ngamma &lt;- parameter(0.1)"
+  },
+  {
+    "objectID": "odin.html#compiling-with-odin2",
+    "href": "odin.html#compiling-with-odin2",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Compiling with odin2",
+    "text": "Compiling with odin2\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n})"
+  },
+  {
+    "objectID": "odin.html#running-a-single-simulation",
+    "href": "odin.html#running-a-single-simulation",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Running a single simulation",
+    "text": "Running a single simulation\n\nsys &lt;- dust_system_create(sir, pars = list(), dt = 0.25)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\n\nplot(t, y$I, type = \"l\", xlab = \"Time\", ylab = \"Infected population\")"
+  },
+  {
+    "objectID": "odin.html#running-multiple-simulations",
+    "href": "odin.html#running-multiple-simulations",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Running multiple simulations",
+    "text": "Running multiple simulations\n\nsys &lt;- dust_system_create(sir, pars = list(), n_particles = 50,\n                                 dt = 0.25)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\nmatplot(t, t(y$I), type = \"l\", lty = 1, col = \"#00000044\",\n        xlab = \"Time\", ylab = \"Infected population\")"
+  },
+  {
+    "objectID": "odin.html#calculating-incidence-with-zero_every",
+    "href": "odin.html#calculating-incidence-with-zero_every",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Calculating incidence with zero_every",
+    "text": "Calculating incidence with zero_every\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  update(incidence) &lt;- incidence + n_SI\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n})"
+  },
+  {
+    "objectID": "odin.html#incidence-accumulates-then-resets",
+    "href": "odin.html#incidence-accumulates-then-resets",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Incidence accumulates then resets",
+    "text": "Incidence accumulates then resets\n\nsys &lt;- dust_system_create(sir, pars = list(), dt = 1 / 128)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 20, by = 1 / 128)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\n\nplot(t[t %% 1 == 0], y$incidence[t %% 1 == 0], type = \"o\", pch = 19,\n     ylab = \"Infection incidence\", xlab = \"Time\")\nlines(t, y$incidence, col = \"red\")"
+  },
+  {
+    "objectID": "odin.html#time-varying-inputs-using-time",
+    "href": "odin.html#time-varying-inputs-using-time",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Time-varying inputs: using time",
+    "text": "Time-varying inputs: using time\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  update(incidence) &lt;- incidence + n_SI\n  \n  seed &lt;- if (time == seed_time) seed_size else 0\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- min(seed + Binomial(S, p_SI), S)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  initial(S) &lt;- N\n  initial(I) &lt;- 0\n  initial(R) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  N &lt;- parameter(1000)\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n  seed_time &lt;- parameter()\n  seed_size &lt;- parameter()\n})"
+  },
+  {
+    "objectID": "odin.html#time-varying-inputs-using-time-1",
+    "href": "odin.html#time-varying-inputs-using-time-1",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Time-varying inputs: using time",
+    "text": "Time-varying inputs: using time\n\npars &lt;- list(seed_time = 10, seed_size = 15)\nsys &lt;- dust_system_create(sir, pars = pars, dt = 0.25)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\n\nplot(t, y$I, type = \"l\", xlab = \"Time\", ylab = \"Infected population\")"
+  },
+  {
+    "objectID": "odin.html#time-varying-inputs-using-interpolate",
+    "href": "odin.html#time-varying-inputs-using-interpolate",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Time-varying inputs: using interpolate",
+    "text": "Time-varying inputs: using interpolate\nThe interpolate function in odin can be used for time-varying parameters, with specification of\n\nthe times of changepoints\nthe values at those changepoints\nthe type of interpolation: linear, constant or spline"
+  },
+  {
+    "objectID": "odin.html#time-varying-inputs-using-interpolate-1",
+    "href": "odin.html#time-varying-inputs-using-interpolate-1",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Time-varying inputs: using interpolate",
+    "text": "Time-varying inputs: using interpolate\nsir &lt;- odin({\n  update(S) &lt;- S - n_SI\n  update(I) &lt;- I + n_SI - n_IR\n  update(R) &lt;- R + n_IR\n  update(incidence) &lt;- incidence + n_SI\n  \n  beta &lt;- interpolate(beta_time, beta_value, \"constant\")\n  beta_time &lt;- parameter()\n  beta_value &lt;- parameter()\n  dim(beta_time, beta_value) &lt;- parameter(rank = 1)\n  \n  p_SI &lt;- 1 - exp(-beta * I / N * dt)\n  p_IR &lt;- 1 - exp(-gamma * dt)\n  n_SI &lt;- Binomial(S, p_SI)\n  n_IR &lt;- Binomial(I, p_IR)\n  \n  initial(S) &lt;- N - I0\n  initial(I) &lt;- I0\n  initial(R) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  N &lt;- parameter(1000)\n  I0 &lt;- parameter(10)\n  gamma &lt;- parameter(0.1)\n})"
+  },
+  {
+    "objectID": "odin.html#time-varying-inputs-using-interpolate-2",
+    "href": "odin.html#time-varying-inputs-using-interpolate-2",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Time-varying inputs: using interpolate",
+    "text": "Time-varying inputs: using interpolate\n\npars &lt;- list(beta_time = c(0, 30), beta_value = c(0.2, 1))\nsys &lt;- dust_system_create(sir, pars = pars, dt = 0.25)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\n\nplot(t, y$I, type = \"l\", xlab = \"Time\", ylab = \"Infected population\")\nabline(v = 30, lty = 3)"
+  },
+  {
+    "objectID": "odin.html#using-arrays",
+    "href": "odin.html#using-arrays",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Using arrays",
+    "text": "Using arrays\nsir_age &lt;- odin({\n  # Equations for transitions between compartments by age group\n  update(S[]) &lt;- S[i] - n_SI[i]\n  update(I[]) &lt;- I[i] + n_SI[i] - n_IR[i]\n  update(R[]) &lt;- R[i] + n_IR[i]\n  update(incidence) &lt;- incidence + sum(n_SI)\n  \n  # Individual probabilities of transition:\n  p_SI[] &lt;- 1 - exp(-lambda[i] * dt) # S to I\n  p_IR &lt;- 1 - exp(-gamma * dt) # I to R\n  \n  # Calculate force of infection\n  \n  # age-structured contact matrix: m[i, j] is mean number\n  # of contacts an individual in group i has with an\n  # individual in group j per time unit\n  m &lt;- parameter()\n  \n  # here s_ij[i, j] gives the mean number of contacts an\n  # individual in group i will have with the currently\n  # infectious individuals of group j\n  s_ij[, ] &lt;- m[i, j] * I[j]\n  \n  # lambda[i] is the total force of infection on an\n  # individual in group i\n  lambda[] &lt;- beta * sum(s_ij[i, ])\n  \n  # Draws from binomial distributions for numbers\n  # changing between compartments:\n  n_SI[] &lt;- Binomial(S[i], p_SI[i])\n  n_IR[] &lt;- Binomial(I[i], p_IR)\n  \n  initial(S[]) &lt;- S0[i]\n  initial(I[]) &lt;- I0[i]\n  initial(R[]) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  S0 &lt;- parameter()\n  I0 &lt;- parameter()\n  beta &lt;- parameter(0.2)\n  gamma &lt;- parameter(0.1)\n  \n  n_age &lt;- parameter()\n  dim(S, S0, n_SI, p_SI) &lt;- n_age\n  dim(I, I0, n_IR) &lt;- n_age\n  dim(R) &lt;- n_age\n  dim(m, s_ij) &lt;- c(n_age, n_age)\n  dim(lambda) &lt;- n_age\n})"
+  },
+  {
+    "objectID": "odin.html#using-arrays-1",
+    "href": "odin.html#using-arrays-1",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Using arrays",
+    "text": "Using arrays\n\npars &lt;- list(S0 = c(990, 1000),\n             I0 = c(10, 0),\n             m = matrix(c(1.8, 0.4, 0.4, 1.2) / 2000, 2, 2),\n             beta = 0.2,\n             gamma = 0.1,\n             n_age = 2)\n\nRemember: m[i, j] is the mean number of contacts per time unit for an individual in group i has with an individual in group j"
+  },
+  {
+    "objectID": "odin.html#using-arrays-2",
+    "href": "odin.html#using-arrays-2",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Using arrays",
+    "text": "Using arrays\n\nsys &lt;- dust_system_create(sir_age, pars = pars, dt = 0.25)\ndust_system_set_state_initial(sys)\nt &lt;- seq(0, 100)\ny &lt;- dust_system_simulate(sys, t)\ny &lt;- dust_unpack_state(sys, y)\n\nmatplot(t, t(y$I), type = \"l\", lty = 1, col = c(\"red\", \"blue\"),\n        xlab = \"Time\", ylab = \"Infected population\")\nlegend(\"topright\", c(\"children\", \"adults\"), col = c(\"red\", \"blue\"), lty = 1)"
+  },
+  {
+    "objectID": "odin.html#key-features-of-arrays",
+    "href": "odin.html#key-features-of-arrays",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Key features of arrays",
+    "text": "Key features of arrays\n\nAll arrays (whether state variable or parameter) need a dim equation\nNo use of i, j etc on LHS - indexing on the LHS is implicit\nSupport for up to 8 dimensions, with index variables i, j, k, l, i5, i6, i7, i8\nFunctions for reducing arrays such as sum, prod, min, max - can be applied over entire array or slices"
+  },
+  {
+    "objectID": "odin.html#arrays-model-with-age-and-vaccine",
+    "href": "odin.html#arrays-model-with-age-and-vaccine",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Arrays: model with age and vaccine",
+    "text": "Arrays: model with age and vaccine\nsir_age_vax &lt;- odin({\n  # Equations for transitions between compartments by age group\n  update(S[, ]) &lt;- new_S[i, j]\n  update(I[, ]) &lt;- I[i, j] + n_SI[i, j] - n_IR[i, j]\n  update(R[, ]) &lt;- R[i, j] + n_IR[i, j]\n  update(incidence) &lt;- incidence + sum(n_SI)\n  \n  # Individual probabilities of transition:\n  p_SI[, ] &lt;- 1 - exp(-rel_susceptibility[j] * lambda[i] * dt) # S to I\n  p_IR &lt;- 1 - exp(-gamma * dt) # I to R\n  p_vax[, ] &lt;- 1 - exp(-eta[i, j] * dt)\n  \n  # Force of infection\n  m &lt;- parameter() # age-structured contact matrix\n  s_ij[, ] &lt;- m[i, j] * sum(I[j, ])\n  lambda[] &lt;- beta * sum(s_ij[i, ])\n  \n  # Draws from binomial distributions for numbers changing between\n  # compartments:\n  n_SI[, ] &lt;- Binomial(S[i, j], p_SI[i, j])\n  n_IR[, ] &lt;- Binomial(I[i, j], p_IR)\n  \n  # Nested binomial draw for vaccination in S\n  # Assume you cannot move vaccine class and get infected in same step\n  n_S_vax[, ] &lt;- Binomial(S[i, j] - n_SI[i, j], p_vax[i, j])\n  new_S[, 1] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j] + n_S_vax[i, n_vax]\n  new_S[, 2:n_vax] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j] + n_S_vax[i, j - 1]\n  \n  initial(S[, ]) &lt;- S0[i, j]\n  initial(I[, ]) &lt;- I0[i, j]\n  initial(R[, ]) &lt;- 0\n  initial(incidence, zero_every = 1) &lt;- 0\n  \n  # User defined parameters - default in parentheses:\n  S0 &lt;- parameter()\n  I0 &lt;- parameter()\n  beta &lt;- parameter(0.0165)\n  gamma &lt;- parameter(0.1)\n  eta &lt;- parameter()\n  rel_susceptibility &lt;- parameter()\n  \n  # Dimensions of arrays\n  n_age &lt;- parameter()\n  n_vax &lt;- parameter()\n  dim(S, S0, n_SI, p_SI) &lt;- c(n_age, n_vax)\n  dim(I, I0, n_IR) &lt;- c(n_age, n_vax)\n  dim(R) &lt;- c(n_age, n_vax)\n  dim(m, s_ij) &lt;- c(n_age, n_age)\n  dim(lambda) &lt;- n_age\n  dim(eta) &lt;- c(n_age, n_vax)\n  dim(rel_susceptibility) &lt;- c(n_vax)\n  dim(p_vax, n_S_vax, new_S) &lt;- c(n_age, n_vax)\n})"
+  },
+  {
+    "objectID": "odin.html#arrays-boundary-conditions",
+    "href": "odin.html#arrays-boundary-conditions",
+    "title": "An introduction to odin2 and dust2",
+    "section": "Arrays: boundary conditions",
+    "text": "Arrays: boundary conditions\nMultiline equations can be used to deal with boundary conditions, e.g. we have\nnew_S[, 1] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j] + n_S_vax[i, n_vax]\nnew_S[, 2:n_vax] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j] + n_S_vax[i, j - 1]\nwhich we could also write as\nnew_S[, ] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j]\nnew_S[, 1] &lt;- new_S[i, j] + n_S_vax[i, n_vax]\nnew_S[, 2:n_vax] &lt;- new_S[i, j] + n_S_vax[i, j - 1]\nor another way of writing this would be to use if else\nnew_S[, ] &lt;- S[i, j] - n_SI[i, j] - n_S_vax[i, j] +\n    (if (j == 1) n_S_vax[i, n_vax] else n_S_vax[i, j - 1])"
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Name\nInstitution\nTitle\n\n\n\n\nAngélica Mata\nFiocruz\nA mechanistic understanding of yellow fever outbreak potential under seasonal variation\n\n\nLin Wang\nUniversity of Cambridge\nAntigenic mapping of influenza A virus with highly accurate serology titer prediction using pathogen genomics and deep learning\n\n\nLars Jakob Andreas Jonnerby\nImperial College London\nInferring influenza transmission dynamics from population immunity levels\n\n\nRyan Imrie\nUniversity of Glasgow\nPost-pandemic changes in population immunity have reduced the likelihood of emergence of zoonotic coronaviruses\n\n\nCarl Andrew Pearson\nUniversity of North Carolina\nflepiMoP & paramix: Prospects for Modularization of and within Odin/Monty\n\n\nJulia Mayer\nCharité – Universitätsmedizin Berlin\nOptimal immunisation strategies against RSV in children\n\n\nJuan Vesga\nUK Health Security Agency\nThe transmission dynamics of Norovirus in England: a genotype-specific modelling study\n\n\nThomas E Rawson\nImperial College London\nModelling H5N1 Influenza in US Dairy Cows"
+  },
+  {
+    "objectID": "talks.html#lightning-talks",
+    "href": "talks.html#lightning-talks",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "Name\nInstitution\nTitle\n\n\n\n\nAngélica Mata\nFiocruz\nA mechanistic understanding of yellow fever outbreak potential under seasonal variation\n\n\nLin Wang\nUniversity of Cambridge\nAntigenic mapping of influenza A virus with highly accurate serology titer prediction using pathogen genomics and deep learning\n\n\nLars Jakob Andreas Jonnerby\nImperial College London\nInferring influenza transmission dynamics from population immunity levels\n\n\nRyan Imrie\nUniversity of Glasgow\nPost-pandemic changes in population immunity have reduced the likelihood of emergence of zoonotic coronaviruses\n\n\nCarl Andrew Pearson\nUniversity of North Carolina\nflepiMoP & paramix: Prospects for Modularization of and within Odin/Monty\n\n\nJulia Mayer\nCharité – Universitätsmedizin Berlin\nOptimal immunisation strategies against RSV in children\n\n\nJuan Vesga\nUK Health Security Agency\nThe transmission dynamics of Norovirus in England: a genotype-specific modelling study\n\n\nThomas E Rawson\nImperial College London\nModelling H5N1 Influenza in US Dairy Cows"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Resources\n\nThe workshop site: github.com/mrc-ide/odin-monty-workshop-2025\nThe odin/monty book: mrc-ide.github.io/odin-monty\n\nFiles from the interactive sessions:\n\nodin.R - code from the introduction to odin\n\nsir-basic-ode.R - basic ODE model\nsir-basic.R - basic stochastic model\nsir-incidence.R - adding incidence\nsir-time.R - adding time dependence\nsir-interpolate-constant.R - adding interpolation\nsir-age.R - adding age structure\nsir-age-vax.R - adding vaccination\n\nfitting.R - code from fitting\n\nincidence.csv - data from the first example\nsir-incidence.R - basic SIR model with incidence\nsir-compare.R - adding comparison to data\nsis.csv - data from the second example\nsis.R - an SIS model"
+  },
+  {
+    "objectID": "future.html#automatic-migration",
+    "href": "future.html#automatic-migration",
+    "title": "Future of the tools",
+    "section": "Automatic migration",
+    "text": "Automatic migration\n\nsys &lt;- odin2::odin({\n  update(y) &lt;- y + rnorm(0, sd)\n  initial(y) &lt;- 0\n  sd &lt;- user()\n})\n\nWarning in odin2::odin({: Found 2 compatibility issues\nReplace calls to 'user()' with 'parameter()'\n✖ sd &lt;- user()\n✔ sd &lt;- parameter()\nReplace calls to r-style random number calls (e.g., 'rnorm()') with monty-stye\ncalls (e.g., 'Normal()')\n✖ update(y) &lt;- y + rnorm(0, sd)\n✔ update(y) &lt;- y + Normal(0, sd)\n\n\n\nYou can use odin_migrate() to rewrite code."
+  },
+  {
+    "objectID": "future.html#gpu-support",
+    "href": "future.html#gpu-support",
+    "title": "Future of the tools",
+    "section": "GPU support",
+    "text": "GPU support\n\nMassively parallel stochastic models\n\nProof-of-concept: 1 consumer GPU = 5-10 32-core nodes\n\nSimulation with many parameter sets harder"
+  },
+  {
+    "objectID": "future.html#mpihpc-support",
+    "href": "future.html#mpihpc-support",
+    "title": "Future of the tools",
+    "section": "MPI/HPC support",
+    "text": "MPI/HPC support\n\nAlternative approach to parallelism\n\nbased on message passing, rather than shared memory\n\nUse CPU-based HPC with fast networking\nWe are interested in hearing about models that can take advantage of these levels of parallelism"
+  },
+  {
+    "objectID": "future.html#more-radical-changes-to-the-dsl",
+    "href": "future.html#more-radical-changes-to-the-dsl",
+    "title": "Future of the tools",
+    "section": "More radical changes to the DSL?",
+    "text": "More radical changes to the DSL?\n\nSupport for events\nMore bounds checking and debugging support\nVector-returning functions (multinomial, matrix mutiplication, etc)\nDescribe models in terms of flows\nComposable sub models (I am told this is very hard!)\nImprove monty’s little DSL!\nWhat else?"
+  },
+  {
+    "objectID": "future.html#improvement-of-supported-particle-methods",
+    "href": "future.html#improvement-of-supported-particle-methods",
+    "title": "Future of the tools",
+    "section": "Improvement of supported particle methods?",
+    "text": "Improvement of supported particle methods?\n\nSMC^2, IF^2\nPF other than bootstrap\nMethods based on estimates of ratio of density rather than ratio of density estimates"
+  },
+  {
+    "objectID": "future.html#gradient-vs-random-walk",
+    "href": "future.html#gradient-vs-random-walk",
+    "title": "Future of the tools",
+    "section": "Gradient vs random walk",
+    "text": "Gradient vs random walk\n\nGoal: Sample from the posterior efficiently\n🐢 Random Walk MCMC:\n\nNo knowledge of shape of posterior\nCan get stuck in tight or curved regions\n\n⚡ Gradient-based methods:\n\nUse the local slope to move efficiently\nBetter scaling in high dimensions"
+  },
+  {
+    "objectID": "future.html#the-banana-problem",
+    "href": "future.html#the-banana-problem",
+    "title": "Future of the tools",
+    "section": "🍌 The Banana Problem",
+    "text": "🍌 The Banana Problem\n\n\n\nlibrary(monty)\nm &lt;- monty_example(\"banana\", sigma = 0.5)\n\na &lt;- seq(-2, 6, length.out = 1000)\nb &lt;- seq(-2.5, 2.5, length.out = 1000)\nz &lt;- outer(a, b, function(alpha, beta) {\n  exp(monty_model_density(m, rbind(alpha, beta)))\n})\n\n\nThis posterior has a strong nonlinear correlation\nRandom walk proposals struggle to explore this space"
+  },
+  {
+    "objectID": "future.html#random-walk-mcmc-limitation",
+    "href": "future.html#random-walk-mcmc-limitation",
+    "title": "Future of the tools",
+    "section": "🐢 Random Walk MCMC: Limitation",
+    "text": "🐢 Random Walk MCMC: Limitation\n\n\n\nset.seed(42)\nsampler_rw &lt;- monty_sampler_random_walk(vcv = diag(2)*1.5)\nsamples_rw &lt;- monty_sample(m, sampler_rw, n_steps = 1000, initial = c(0,0))\n\n⡀⠀ Sampling  ■                                |   0% ETA:  3s\n\n\n✔ Sampled 1000 steps across 1 chain in 42ms\n\n\n\n\n\n\nAcceptance rate 0.236\nSmall steps to avoid rejection → slow mixing\nMisses curved geometry\nInefficient in higher dimensions"
+  },
+  {
+    "objectID": "future.html#gradient-based-faster-smarter",
+    "href": "future.html#gradient-based-faster-smarter",
+    "title": "Future of the tools",
+    "section": "⚡ Gradient-Based: Faster & Smarter",
+    "text": "⚡ Gradient-Based: Faster & Smarter\n\n\n\nsampler_hmc &lt;- monty_sampler_hmc(epsilon = 0.2, n_integration_steps = 10)\n#samples_hmc &lt;- monty_sample(m, sampler_hmc, n_steps = 1000, initial = c(0,0))\n\n\nAcceptance rate 0.236\nUses gradient of the log posterior\nEfficiently explores curved shapes\nMuch better mixing in fewer steps\nBut potentially expensive to compute gradients"
+  },
+  {
+    "objectID": "future.html#reverse-autodiff-in-odin",
+    "href": "future.html#reverse-autodiff-in-odin",
+    "title": "Future of the tools",
+    "section": "Reverse AutoDiff in odin",
+    "text": "Reverse AutoDiff in odin\n\nThink of your model as a computational graph: data + parameters → output\nReverse AD walks backward through this graph to efficiently compute gradients\n✅ More accurate than numerical methods\n✅ Much faster (especially in high dimensions)\n\n🛠 In odin, you write the model normally — gradients come for free"
+  },
+  {
+    "objectID": "future.html#summary",
+    "href": "future.html#summary",
+    "title": "Future of the tools",
+    "section": "✅ Summary",
+    "text": "✅ Summary\n\nGradient-based methods like HMC/NUTS:\n\nAre more efficient, especially for complex or high-dimensional posteriors\nAdapt to local geometry (no tuning random walk scale!)\nOften yield better convergence diagnostics\n\n🚀 For users fitting models: you’ll get faster, more reliable inference with gradients when available!"
+  },
+  {
+    "objectID": "future.html#autodiff-roadmap",
+    "href": "future.html#autodiff-roadmap",
+    "title": "Future of the tools",
+    "section": "🗺️ Autodiff roadmap",
+    "text": "🗺️ Autodiff roadmap\n\nSimple support implemented as a proof-of-concept\n\ndeterministic discrete time models with no arrays\n\nExpand to support ODE models, models with arrays\nFully implement algorithms in monty that can exploit gradients\n\nHMC, NUTS, variational inference"
+  },
+  {
+    "objectID": "future.html#parallel-tempering",
+    "href": "future.html#parallel-tempering",
+    "title": "Future of the tools",
+    "section": "Parallel tempering",
+    "text": "Parallel tempering"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact Us",
+    "section": "",
+    "text": "Contact Us\nFor any inquiries or further information about the workshop, please reach out:\n\nEmail: Nieves Derqui and Marc Baguelin\nBlueSky: @mrc-outbreak.bsky.social and @marcbaguelin.bsky.social"
+  },
+  {
+    "objectID": "acknowledgments.html",
+    "href": "acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "Acknowledgments\nThis workshop is supported by the NIHR HPRU in Modelling and Health Economics, a partnership between UKSHA, Imperial College London, and the London School of Hygiene and Tropical Medicine"
+  },
+  {
+    "objectID": "introduction.html#in-case-of-fire",
+    "href": "introduction.html#in-case-of-fire",
+    "title": "Welcome and opening remarks",
+    "section": "🔥🔥🔥 In case of fire 🔥🔥🔥",
+    "text": "🔥🔥🔥 In case of fire 🔥🔥🔥"
+  },
+  {
+    "objectID": "introduction.html#wifi",
+    "href": "introduction.html#wifi",
+    "title": "Welcome and opening remarks",
+    "section": "🛜 WIFI",
+    "text": "🛜 WIFI\n\nEDUROAM\nfor non-Academic participants\n\nThe Cloud\n\nConnect to ’_The Cloud’ on your device\nFollow the instructions"
+  },
+  {
+    "objectID": "introduction.html#support",
+    "href": "introduction.html#support",
+    "title": "Welcome and opening remarks",
+    "section": "Support",
+    "text": "Support"
+  },
+  {
+    "objectID": "introduction.html#classic-odin---the-beginnings-2016-2019",
+    "href": "introduction.html#classic-odin---the-beginnings-2016-2019",
+    "title": "Welcome and opening remarks",
+    "section": "🏺 “Classic” odin - the beginnings (2016-2019)",
+    "text": "🏺 “Classic” odin - the beginnings (2016-2019)\n\nodin created to integrate ODEs (e.g. for compartmental models) in R with a domain-specific language (DSL)\nLimited support for difference (discrete-time) equations\nAutomatic translation to C; efficient solutions in little code\nUsed at Imperial for malaria, HIV, ebola and other diseases\nNo support for inference"
+  },
+  {
+    "objectID": "introduction.html#covid-19-response-2020-2022",
+    "href": "introduction.html#covid-19-response-2020-2022",
+    "title": "Welcome and opening remarks",
+    "section": "😷 COVID-19 response (2020-2022)",
+    "text": "😷 COVID-19 response (2020-2022)\n\n\n\n\n(Knock et al 2021, Science Translational Medicine)"
+  },
+  {
+    "objectID": "introduction.html#covid-19-response-2020-2022-1",
+    "href": "introduction.html#covid-19-response-2020-2022-1",
+    "title": "Welcome and opening remarks",
+    "section": "😷 COVID-19 response (2020-2022)",
+    "text": "😷 COVID-19 response (2020-2022)\n\nmcstate for statistical machinery (particle filter, pMCMC)\ndust for efficient parallel simulation\nodin.dust compile odin code to use dust\nCollaborative work by the UK real-time modelling & research software engineers teams at Imperial College\nMany, many, rough edges"
+  },
+  {
+    "objectID": "introduction.html#meanwhile",
+    "href": "introduction.html#meanwhile",
+    "title": "Welcome and opening remarks",
+    "section": "Meanwhile…",
+    "text": "Meanwhile…\n\nDifferent versions of the stack have been picked up outside of Imperial\n\nZurich, Munster, LSHTM, CDC, Fudan, Lancaster, Pasteur, NC State, Norway, Switzerland\n\nPeople tried to repurpose statistical machinery in mcstate\nWe hit limits of computational efficiency and ability to manage inputs and outputs with the COVID model\nThe documentation (22 vignettes) and packages (&gt;5) were hard to navigate and discover"
+  },
+  {
+    "objectID": "introduction.html#new-software",
+    "href": "introduction.html#new-software",
+    "title": "Welcome and opening remarks",
+    "section": "New software",
+    "text": "New software\n\nDesign of a new architecture, rewiring data, model and parameters\nNew statistical interface, monty\n\nA new small BUGS-inspired DSL for priors\nWorks well with odin models, but usable on its own\nModular, and eventually easy to extend\nFully replaces mcstate"
+  },
+  {
+    "objectID": "introduction.html#new-community",
+    "href": "introduction.html#new-community",
+    "title": "Welcome and opening remarks",
+    "section": "New community",
+    "text": "New community\n\nWe want to understand how people are using these tools\nWhat have you built, what do you want to build?"
+  },
+  {
+    "objectID": "introduction.html#for-us-to-know",
+    "href": "introduction.html#for-us-to-know",
+    "title": "Welcome and opening remarks",
+    "section": "🙌 For us to know",
+    "text": "🙌 For us to know\nWho identifies as\n\n🟢 Novices (no prior tool experience)\n🟡 Users of other tools (e.g. Stan, JAGS, BayesTools)\n🔵 odin/mcstate/monty users"
+  },
+  {
+    "objectID": "introduction.html#aim-of-the-workshop",
+    "href": "introduction.html#aim-of-the-workshop",
+    "title": "Welcome and opening remarks",
+    "section": "Aim of the workshop",
+    "text": "Aim of the workshop\n\nIntroducing the 2nd generation of the toolkit\nCollecting feedback\nBuilding a community and fostering collaboration"
+  },
+  {
+    "objectID": "introduction.html#overview-of-workshop",
+    "href": "introduction.html#overview-of-workshop",
+    "title": "Welcome and opening remarks",
+    "section": "Overview of workshop",
+    "text": "Overview of workshop\nDay 1: Introducing the Tools and Applications\nDay 2: Feedback, Development, and Support\n📸 Group photo 1:40PM\n🥂 Reception 5:30PM\n🍽️ Workshop Dinner @ “The BroadCaster” 7PM"
+  },
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "The Odin-Monty Workshop, held on 24–25 March 2025 at Imperial College London, brought together 75 participants from 11 countries and over 18 institutions. The event aimed to build capacity and foster a vibrant user community around the odin, dust, and monty packages for epidemiological modelling and inference.\nThe report below summarises:\n\nScientific highlights and session themes\n\nParticipant feedback and community insights\n\nPrioritised feature requests and future development roadmap\n\nIt reflects the collective discussions, learning, and ambitions shared during the two-day event.\n📥 Download the full report (PDF)\nFor any questions, please contact: Marc Baguelin"
+  },
+  {
+    "objectID": "report.html#report",
+    "href": "report.html#report",
+    "title": "Odin-Monty Workshop",
+    "section": "",
+    "text": "The Odin-Monty Workshop, held on 24–25 March 2025 at Imperial College London, brought together 75 participants from 11 countries and over 18 institutions. The event aimed to build capacity and foster a vibrant user community around the odin, dust, and monty packages for epidemiological modelling and inference.\nThe report below summarises:\n\nScientific highlights and session themes\n\nParticipant feedback and community insights\n\nPrioritised feature requests and future development roadmap\n\nIt reflects the collective discussions, learning, and ambitions shared during the two-day event.\n📥 Download the full report (PDF)\nFor any questions, please contact: Marc Baguelin"
+  },
+  {
+    "objectID": "feedback.html#help-us-improve-odin-monty",
+    "href": "feedback.html#help-us-improve-odin-monty",
+    "title": "Small group feedback",
+    "section": "Help Us Improve odin & monty",
+    "text": "Help Us Improve odin & monty\n\nGoal: Gather actionable feedback based on your experience (including yesterday!)\nStructure: Group discussions guided by 4 key topic (Interface design, Documentation, Work practice, Community)\nOutcome: Identify what works well and where improvements are needed"
+  },
+  {
+    "objectID": "feedback.html#group-setup",
+    "href": "feedback.html#group-setup",
+    "title": "Small group feedback",
+    "section": "Group Setup",
+    "text": "Group Setup\n\n🟢 Novices (no prior tool experience)\n🟡 Users of other tools (e.g. Stan, JAGS, BayesTools)\n🔵 odin/mcstate/monty users\n\n\nEach group sits at a table of ~10 people.\nEach table has a QR code to capture discussion points in a shared Google Doc"
+  },
+  {
+    "objectID": "feedback.html#format-and-timing",
+    "href": "feedback.html#format-and-timing",
+    "title": "Small group feedback",
+    "section": "⏱️ Format and Timing",
+    "text": "⏱️ Format and Timing\n\nEach topic gets:\n\n8 minutes for group discussion\n7 minutes for sharing back with the room\n\nPlease identify if possible:\n\n1 thing you liked about the toolkit\n1 thing that needs improvement"
+  },
+  {
+    "objectID": "feedback.html#topic-1-interface-design",
+    "href": "feedback.html#topic-1-interface-design",
+    "title": "Small group feedback",
+    "section": "Topic 1 – Interface Design",
+    "text": "Topic 1 – Interface Design\n\n🟢 Novices: Was yesterday’s session easy to get started? Were any commands confusing?\n\n🟡 Other tools: How did odin compare to the tools you’re used to?\n\n🔵 odin users: How does odin2 differ from earlier versions? Are commands more intuitive now?"
+  },
+  {
+    "objectID": "feedback.html#topic-2-documentation-learning-materials",
+    "href": "feedback.html#topic-2-documentation-learning-materials",
+    "title": "Small group feedback",
+    "section": "Topic 2 – Documentation & Learning Materials",
+    "text": "Topic 2 – Documentation & Learning Materials\n\n🟢 Novices: What formats (videos, cheat sheets, books) do you prefer?\n\n🟡 Other tools: What resources helped you most? What was hard to find? Something that exists elsewhere we should implement?\n\n🔵 odin users: What helped you most learning about odin? Do you like the odin-monty book? What’s still missing?"
+  },
+  {
+    "objectID": "feedback.html#topic-3-work-practice",
+    "href": "feedback.html#topic-3-work-practice",
+    "title": "Small group feedback",
+    "section": "Topic 3 – Work Practice",
+    "text": "Topic 3 – Work Practice\n\n🟢 Novices: What kind of problems would you want to use odin-monty for in future? any task you find repetitive and could automate?\n\n🟡 Other tools: What steps in your current workflow could odin-monty support or replace? what steps it cannot replace?\n🔵 odin users: Which parts of the odin-monty pipeline do you repeatedly use? What slows you down?"
+  },
+  {
+    "objectID": "feedback.html#topic-4-community-ecosystem",
+    "href": "feedback.html#topic-4-community-ecosystem",
+    "title": "Small group feedback",
+    "section": "Topic 4 – Community & Ecosystem",
+    "text": "Topic 4 – Community & Ecosystem\n\n🟢 Novices: Would you find a community helpful? What format (forum, chat, office hours)?\n\n🟡 Other tools: What kind of community features do other tools offer that you value?\n\n🔵 odin users: How have you engaged with the odin community before? What could enhance collaboration?"
+  },
+  {
+    "objectID": "feedback.html#key-points-wrap-up",
+    "href": "feedback.html#key-points-wrap-up",
+    "title": "Small group feedback",
+    "section": "Key Points & Wrap-up",
+    "text": "Key Points & Wrap-up\n\nEach group shares 1 thing they liked and 1 suggestion for improvement for each topic.\nYour feedback helps shape the future of odin—thank you! 🌈"
+  }
+]
