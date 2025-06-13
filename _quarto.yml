@@ -10,5 +10,6 @@ website:
     - index.qmd
     - agenda.qmd
     - talks.qmd
+    - report.qmd
     - acknowledgments.qmd
     - contact.qmd

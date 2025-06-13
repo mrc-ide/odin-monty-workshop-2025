@@ -1,0 +1,15 @@
+## Report
+  
+The **Odin-Monty Workshop**, held on 24–25 March 2025 at Imperial College London, brought together 75 participants from 11 countries and over 18 institutions. The event aimed to build capacity and foster a vibrant user community around the **odin**, **dust**, and **monty** packages for epidemiological modelling and inference.
+
+The report below summarises:
+
+- Scientific highlights and session themes  
+- Participant feedback and community insights  
+- Prioritised feature requests and future development roadmap  
+
+It reflects the collective discussions, learning, and ambitions shared during the two-day event.
+
+📥 [**Download the full report (PDF)**](docs/odin_monty_workshop_report.pdf){.button .btn-download}
+
+For any questions, please contact: [Marc Baguelin](mailto:m.baguelin@imperial.ac.uk)
